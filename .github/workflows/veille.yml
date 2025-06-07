@@ -1,5 +1,3 @@
-# .github/workflows/veille.yml
-
 name: Lancer la veille d'informations
 
 on:
@@ -12,25 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Récupère le code du dépôt
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Installe Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # 3. Installe les dépendances (axios, cheerio) --- C'EST L'ÉTAPE QUI MANQUAIT ---
       - name: Install dependencies
         run: npm install
 
-      # 4. Lance le script de veille
       - name: Run scraper
         run: node scraper.js
 
-      # 5. Commit et Push le fichier veille.json mis à jour
       - name: Commit and push if it changed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
