@@ -1,0 +1,7 @@
+/* public/style.css */
+body { font-family: sans-serif; margin: 0; background-color: #f0f2f5; }
+header { background-color: #333; color: white; padding: 1rem; text-align: center; }
+main { max-width: 800px; margin: 1rem auto; padding: 1rem; }
+.article { background-color: white; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.article a { text-decoration: none; color: #007bff; font-size: 1.2rem; }
+.article .source { font-size: 0.9rem; color: #666; margin-top: 0.5rem; }
