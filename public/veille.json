@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Convert Photos to Atkinson Dithering",
+    "link": "https://gazs.github.io/canvas-atkinson-dither/",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.057Z"
+  },
+  {
+    "title": "Bill Atkinson has died",
+    "link": "https://daringfireball.net/linked/2025/06/07/bill-atkinson-rip",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.057Z"
+  },
+  {
+    "title": "BorgBackup 2 has no server-side append-only anymore",
+    "link": "https://github.com/borgbackup/borg/pull/8798",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.057Z"
+  },
+  {
+    "title": "You Need Much Less Memory Than Time",
+    "link": "https://blog.computationalcomplexity.org/2025/02/you-need-much-less-memory-than-time.html",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.057Z"
+  },
+  {
+    "title": "Self-Host and Tech Independence: The Joy of Building Your Own",
+    "link": "https://www.ssp.sh/blog/self-host-self-independence/",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.057Z"
+  },
+  {
+    "title": "Discovering a JDK Race Condition, and Debugging It in 30 Minutes with Fray",
+    "link": "https://aoli.al/blogs/jdk-bug/",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.057Z"
+  },
+  {
+    "title": "Updates to Advanced Voice Mode for paid users",
+    "link": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.057Z"
+  },
+  {
+    "title": "Washington Post's Privacy Tip: Stop Using Chrome, Delete Meta Apps (and Yandex)",
+    "link": "https://tech.slashdot.org/story/25/06/07/035249/washington-posts-privacy-tip-stop-using-chrome-delete-metas-apps-and-yandex",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.057Z"
+  },
+  {
+    "title": "The time bomb in the tax code that's fueling mass tech layoffs",
+    "link": "https://qz.com/tech-layoffs-tax-code-trump-section-174-microsoft-meta-1851783502",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.057Z"
+  },
+  {
+    "title": "Why We're Moving on from Nix",
+    "link": "https://blog.railway.com/p/introducing-railpack",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "Low-Level Optimization with Zig",
+    "link": "https://alloc.dev/2025/06/07/zig_optimization",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "A tool for burning visible pictures on a compact disc surface",
+    "link": "https://github.com/arduinocelentano/cdimage",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "Researchers develop ‘transparent paper’ as alternative to plastics",
+    "link": "https://japannews.yomiuri.co.jp/science-nature/technology/20250605-259501/",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "OneText (YC W23) Is Hiring a DevOps/DBA Lead Engineer",
+    "link": "https://jobs.ashbyhq.com/one-text/b95952a2-9bc2-4c3a-9da1-3dcc157b4a27",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "Getting Past Procrastination",
+    "link": "https://spectrum.ieee.org/getting-past-procastination",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "The FAIR Package Manager: Decentralized WordPress infrastructure",
+    "link": "https://joost.blog/path-forward-for-wordpress/",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "Field Notes from Shipping Real Code with Claude",
+    "link": "https://diwank.space/field-notes-from-shipping-real-code-with-claude",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "What was Radiant AI, anyway?",
+    "link": "https://blog.paavo.me/radiant-ai/",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "Musk-Trump dispute includes threats to SpaceX contracts",
+    "link": "https://spacenews.com/musk-trump-dispute-includes-threats-to-spacex-contracts/",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "How we decreased GitLab repo backup times from 48 hours to 41 minutes",
+    "link": "https://about.gitlab.com/blog/2025/06/05/how-we-decreased-gitlab-repo-backup-times-from-48-hours-to-41-minutes/",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "I read all of Cloudflare's Claude-generated commits",
+    "link": "https://www.maxemitchell.com/writings/i-read-all-of-cloudflares-claude-generated-commits/",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "PyOpticL – Code-to-CAD optical system engineering",
+    "link": "https://github.com/UMassIonTrappers/PyOpticL",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "A year of funded FreeBSD development",
+    "link": "https://www.daemonology.net/blog/2025-06-06-A-year-of-funded-FreeBSD.html",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "Why are smokestacks so tall?",
+    "link": "https://practical.engineering/blog/2025/6/3/why-are-smokestacks-so-tall",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "If it works, it's not AI: a commercial look at AI startups (1999)",
+    "link": "https://dspace.mit.edu/handle/1721.1/80558",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "EFF to the FTC: DMCA Section 1201 Creates Anti-Competitive Regulatory Barriers",
+    "link": "https://www.eff.org/deeplinks/2025/06/eff-files-comments-ftc-regarding-reducing-anti-competitive-regulatory-barriers",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "Log-Linear Attention",
+    "link": "https://arxiv.org/abs/2506.04761",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "Reverse Engineering Cursor's LLM Client",
+    "link": "https://www.tensorzero.com/blog/reverse-engineering-cursors-llm-client/",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "The Illusion of Thinking: Understanding the Limitations of Reasoning LLMs [pdf]",
+    "link": "https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  },
+  {
+    "title": "Hate Radio (2011)",
+    "link": "https://rwandanstories.org/genocide/hate_radio.html",
+    "source": "Hacker News",
+    "date": "2025-06-07T22:06:43.058Z"
+  }
+]
