@@ -23,5 +23,10 @@
     "name": "Le Cortecs",
     "url": "https://cortecs.org/",
     "selector": "h3.entry-title a"
+  },
+  {
+    "name": "Science-critique",
+    "url": "https://www.senscritique.com/magazine",
+    "selector": ".elma-title"
   }
 ]
