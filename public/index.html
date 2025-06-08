@@ -15,7 +15,13 @@
       window.OneSignal = window.OneSignal || [];
       OneSignal.push(function() {
         OneSignal.init({
-          appId: "59056985-fde9-4902-bfde-645134db678c", // N'oublie pas de mettre ton App ID ici !
+          // IMPORTANT : Remplace ceci par ton véritable App ID de OneSignal
+          appId: "8f0c1d36-97bf-404f-b748-f147327ea3b6", 
+
+          // Ces deux lignes sont CRUCIALES pour résoudre notre problème.
+          // Elles disent à OneSignal d'utiliser notre propre service worker.
+          serviceWorkerPath: "service-worker.js",
+          serviceWorkerUpdaterPath: "service-worker.js"
         });
       });
     </script>
@@ -33,7 +39,8 @@
     <main>
         <div class="filters-container">
             <input type="search" id="keyword-filter" placeholder="Filtrer par mot-clé...">
-            <div id="source-filters" class="source-filters"></div>
+            <div id="source-filters" class="source-filters">
+                </div>
         </div>
         
         <div id="articles-container">
@@ -47,10 +54,10 @@
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js')
                 .then(registration => {
-                    console.log('Service Worker enregistré avec succès :', registration);
+                    console.log('Service Worker principal enregistré avec succès !');
                 })
                 .catch(error => {
-                    console.error('Erreur d\'enregistrement du Service Worker :', error);
+                    console.error('Erreur lors de l\'enregistrement du Service Worker :', error);
                 });
         }
     </script>
