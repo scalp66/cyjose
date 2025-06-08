@@ -1,33 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('articles-container');
+    // Éléments du DOM
+    const articlesContainer = document.getElementById('articles-container');
+    const keywordFilterInput = document.getElementById('keyword-filter');
+    const sourceFiltersContainer = document.getElementById('source-filters');
 
-    // Fonction pour récupérer les favoris depuis la mémoire du navigateur (localStorage)
-    const getFavorites = () => {
-        // '|| "[]"' évite une erreur si 'favoriteArticles' n'existe pas encore
-        return JSON.parse(localStorage.getItem('favoriteArticles') || '[]');
-    };
+    // Variable pour stocker tous les articles chargés une seule fois
+    let allArticles = [];
+    let activeSourceFilter = 'all'; // Par défaut, on affiche tout
 
-    // Fonction pour sauvegarder la liste des favoris mise à jour
-    const saveFavorites = (favorites) => {
-        localStorage.setItem('favoriteArticles', JSON.stringify(favorites));
-    };
+    // --- LOGIQUE DES FAVORIS (ne change pas) ---
+    const getFavorites = () => JSON.parse(localStorage.getItem('favoriteArticles') || '[]');
+    const saveFavorites = (favorites) => localStorage.setItem('favoriteArticles', JSON.stringify(favorites));
 
-    // Fonction qui affiche les articles sur la page
-    const renderArticles = (articles) => {
-        container.innerHTML = '';
+    // --- FONCTION PRINCIPALE D'AFFICHAGE ---
+    const displayArticles = (articlesToDisplay) => {
+        articlesContainer.innerHTML = '';
         const favorites = getFavorites();
-        // On crée un Set des liens favoris pour une recherche plus rapide
         const favoriteLinks = new Set(favorites.map(f => f.link));
 
-        if (articles.length === 0) {
-            container.innerHTML = '<p>Aucun article trouvé pour le moment.</p>';
+        if (articlesToDisplay.length === 0) {
+            articlesContainer.innerHTML = '<p>Aucun article ne correspond à vos filtres.</p>';
             return;
         }
 
-        articles.forEach(article => {
+        articlesToDisplay.forEach(article => {
             const articleElement = document.createElement('div');
             articleElement.className = 'article';
-            // On vérifie si l'article actuel est dans nos favoris
             const isFavorite = favoriteLinks.has(article.link);
 
             articleElement.innerHTML = `
@@ -36,52 +34,93 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="source">Source : ${article.source}</div>
                 </div>
                 <div class="article-actions">
-                    <span 
-                        class="favorite-btn ${isFavorite ? 'is-favorite' : ''}" 
-                        data-link="${article.link}" 
-                        data-title="${article.title}" 
-                        data-source="${article.source}"
-                    >⭐</span>
+                    <span class="favorite-btn ${isFavorite ? 'is-favorite' : ''}" data-link="${article.link}" data-title="${article.title}" data-source="${article.source}">⭐</span>
                 </div>
             `;
-            container.appendChild(articleElement);
+            articlesContainer.appendChild(articleElement);
         });
     };
 
-    // On écoute les clics sur toute la zone des articles
-    container.addEventListener('click', (event) => {
-        // Si l'élément cliqué a la classe 'favorite-btn'
-        if (event.target.classList.contains('favorite-btn')) {
-            const button = event.target;
-            const articleData = {
-                link: button.dataset.link,
-                title: button.dataset.title,
-                source: button.dataset.source
-            };
+    // --- FONCTION QUI APPLIQUE LES FILTRES ---
+    const applyFilters = () => {
+        const keyword = keywordFilterInput.value.toLowerCase();
+        
+        let filteredArticles = allArticles;
 
-            let favorites = getFavorites();
-            const existingIndex = favorites.findIndex(fav => fav.link === articleData.link);
-
-            if (existingIndex > -1) {
-                // S'il est déjà en favori, on le retire de la liste
-                favorites.splice(existingIndex, 1);
-                button.classList.remove('is-favorite');
-            } else {
-                // Sinon, on l'ajoute à la liste
-                favorites.push(articleData);
-                button.classList.add('is-favorite');
-            }
-            // On sauvegarde la nouvelle liste dans le localStorage
-            saveFavorites(favorites);
+        // 1. Filtre par source
+        if (activeSourceFilter !== 'all') {
+            filteredArticles = filteredArticles.filter(article => article.source === activeSourceFilter);
         }
-    });
 
+        // 2. Filtre par mot-clé
+        if (keyword.length > 0) {
+            filteredArticles = filteredArticles.filter(article => article.title.toLowerCase().includes(keyword));
+        }
+
+        displayArticles(filteredArticles);
+    };
+
+    // --- SETUP INITIAL ---
     // Charger les articles depuis veille.json au démarrage
     fetch('veille.json')
         .then(response => response.ok ? response.json() : Promise.reject('Fichier non trouvé'))
-        .then(renderArticles)
+        .then(articles => {
+            allArticles = articles; // On sauvegarde tous les articles
+
+            // Créer les boutons de filtre par source dynamiquement
+            const sources = ['all', ...new Set(allArticles.map(a => a.source))];
+            sourceFiltersContainer.innerHTML = ''; // Vider le conteneur
+            sources.forEach(source => {
+                const btn = document.createElement('button');
+                btn.className = 'source-btn';
+                btn.dataset.source = source;
+                btn.textContent = source === 'all' ? 'Toutes les sources' : source;
+                if (source === 'all') {
+                    btn.classList.add('active');
+                }
+                sourceFiltersContainer.appendChild(btn);
+            });
+
+            displayArticles(allArticles); // Afficher tous les articles au début
+        })
         .catch(error => {
             console.error('Erreur de chargement des articles:', error);
-            container.innerHTML = '<p>Impossible de charger les articles.</p>';
+            articlesContainer.innerHTML = '<p>Impossible de charger les articles.</p>';
         });
+
+    // --- ÉCOUTEURS D'ÉVÉNEMENTS ---
+
+    // Écouteur pour le champ de recherche par mot-clé
+    keywordFilterInput.addEventListener('input', applyFilters);
+
+    // Écouteur pour les clics sur les boutons de source
+    sourceFiltersContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('source-btn')) {
+            // Mettre à jour le style des boutons
+            document.querySelectorAll('.source-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Mettre à jour le filtre actif et ré-afficher les articles
+            activeSourceFilter = event.target.dataset.source;
+            applyFilters();
+        }
+    });
+
+    // Écouteur pour la gestion des favoris (ne change pas)
+    articlesContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('favorite-btn')) {
+            const button = event.target;
+            const articleData = { link: button.dataset.link, title: button.dataset.title, source: button.dataset.source };
+            let favorites = getFavorites();
+            const existingIndex = favorites.findIndex(fav => fav.link === articleData.link);
+            if (existingIndex > -1) {
+                favorites.splice(existingIndex, 1);
+                button.classList.remove('is-favorite');
+            } else {
+                favorites.push(articleData);
+                button.classList.add('is-favorite');
+            }
+            saveFavorites(favorites);
+        }
+    });
 });
