@@ -23,5 +23,10 @@
     "name": " Observatoire Zététique",
     "url": "https://charlatans.info/",
     "selector": "h2.title a"
+  },
+  {
+    "name": "Le Cortecs",
+    "url": "https://cortecs.org/",
+    "selector": "h3.entry-title a"
   }
 ]
