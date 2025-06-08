@@ -9,6 +9,10 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
 
+    # Permission pour que l'action puisse écrire dans le dépôt
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,6 +26,10 @@ jobs:
         run: npm install
 
       - name: Run scraper
+        # Ce bloc 'env' injecte les secrets dans le script
+        env:
+          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
         run: node scraper.js
 
       - name: Commit and push if it changed
