@@ -28,10 +28,5 @@
     "name": "Le Cortecs",
     "url": "https://cortecs.org/",
     "selector": "h3.entry-title a"
-  },
-  {
-    "name": "Un Monde Riant",
-    "url": "https://unmonderiant.fr/",
-    "selector": ".post-title a"
   }
 ]
