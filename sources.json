@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Hacker News",
+    "url": "https://news.ycombinator.com/",
+    "selector": ".titleline > a"
+  }
+]
