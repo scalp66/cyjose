@@ -3,5 +3,10 @@
     "name": "Menace Théoriste",
     "url": "https://menace-theoriste.fr/",
     "selector": ".entry-title a"
+  },
+  {
+    "name": "Afis Science",
+    "url": "https://www.afis.org/",
+    "selector": ".elementor-post__title a"
   }
 ]
