@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres des Sources</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#333333">
+</head>
+<body>
+    <header>
+        <h1>Paramètres des Sources</h1>
+        <nav>
+            <a href="index.html">Retour à l'accueil</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="settings-section">
+            <h2>Jeton d'Accès GitHub (PAT)</h2>
+            <p class="small-text">Ce jeton est nécessaire pour modifier les sources. Il est stocké uniquement dans votre navigateur.</p>
+            <input type="password" id="github-pat" placeholder="Collez votre jeton d'accès ici...">
+            <button id="save-pat-btn">Sauvegarder le jeton</button>
+        </div>
+
+        <div class="settings-section">
+            <h2>Sources Actuelles</h2>
+            <ul id="sources-list">
+                <li>Veuillez sauvegarder un jeton pour charger les sources.</li>
+            </ul>
+        </div>
+
+        <div class="settings-section">
+            <h2>Ajouter une Nouvelle Source</h2>
+            <form id="add-source-form">
+                <input type="text" id="source-name" placeholder="Nom de la source (ex: Le Monde)" required>
+                <input type="url" id="source-url" placeholder="URL de la page (https://...)" required>
+                <input type="text" id="source-selector" placeholder="Sélecteur CSS des liens (ex: .article a)" required>
+                <button type="submit">Ajouter la source</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="parametres.js"></script>
+</body>
+</html>
