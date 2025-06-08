@@ -15,11 +15,6 @@
     "selector": ".article__title-link"
   },
   {
-    "name": "La Tronche en Biais",
-    "url": "https://www.tronche-en-biais.fr/",
-    "selector": ".entry-title a"
-  },
-  {
     "name": " Observatoire Zététique",
     "url": "https://charlatans.info/",
     "selector": "h2.title a"
