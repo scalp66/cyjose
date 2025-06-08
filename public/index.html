@@ -15,7 +15,7 @@
       window.OneSignal = window.OneSignal || [];
       OneSignal.push(function() {
         OneSignal.init({
-          appId: "59056985-fde9-4902-bfde-645134db678c", // N'oublie pas de mettre ton App ID ici !
+          appId: "VOTRE_APP_ID_ONESIGNAL", // N'oublie pas de mettre ton App ID ici !
         });
       });
     </script>
@@ -33,15 +33,27 @@
     <main>
         <div class="filters-container">
             <input type="search" id="keyword-filter" placeholder="Filtrer par mot-clé...">
-            <div id="source-filters" class="source-filters">
-                </div>
+            <div id="source-filters" class="source-filters"></div>
         </div>
+        
         <div id="articles-container">
             <p>Chargement des articles...</p>
         </div>
     </main>
 
     <script src="app.js"></script>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker enregistré avec succès :', registration);
+                })
+                .catch(error => {
+                    console.error('Erreur d\'enregistrement du Service Worker :', error);
+                });
+        }
+    </script>
 
 </body>
 </html>
