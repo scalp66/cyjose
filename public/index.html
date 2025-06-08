@@ -15,7 +15,11 @@
       window.OneSignal = window.OneSignal || [];
       OneSignal.push(function() {
         OneSignal.init({
-          appId: "59056985-fde9-4902-bfde-645134db678c", // N'oublie pas de mettre ton App ID ici !
+          appId: "59056985-fde9-4902-bfde-645134db678c", // Assure-toi que le bon ID est ici
+
+          // 👇 ON AJOUTE CES DEUX LIGNES POUR SPÉCIFIER NOTRE PROPRE FICHIER 👇
+          serviceWorkerPath: "service-worker.js",
+          serviceWorkerUpdaterPath: "service-worker.js"
         });
       });
     </script>
