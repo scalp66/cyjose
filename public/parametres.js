@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- CONFIGURATION ---
-    const GITHUB_OWNER = "scalp66"; // Ton nom d'utilisateur GitHub
-    const GITHUB_REPO = "cyjose"; // Le nom de ton dépôt
-    const SOURCES_PATH = "sources.json"; // Le chemin du fichier à modifier
+    const GITHUB_OWNER = "scalp66";
+    const GITHUB_REPO = "cyjose";
+    const SOURCES_PATH = "sources.json";
 
     // --- ÉLÉMENTS DU DOM ---
     const patInput = document.getElementById('github-pat');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addSourceForm = document.getElementById('add-source-form');
 
     // --- SÉCURITÉ : AVERTISSEMENT ---
-    console.warn("ATTENTION: Ce mode de fonctionnement stocke le Jeton d'Accès Personnel dans le localStorage du navigateur. C'est une approche simplifiée pour ce projet personnel et ne doit pas être utilisée pour des applications publiques ou sensibles.");
+    console.warn("ATTENTION: Ce mode de fonctionnement stocke le Jeton d'Accès Personnel dans le localStorage du navigateur...");
 
     // --- FONCTIONS DE L'API GITHUB ---
 
@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return null;
         }
         try {
-            const response = await fetch(`https://api.github.com/repos/<span class="math-inline">\{GITHUB\_OWNER\}/</span>{GITHUB_REPO}/contents/${SOURCES_PATH}`, {
+            // CORRECTION ICI : Utilisation des backticks ``
+            const response = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${SOURCES_PATH}`, {
                 headers: { 'Authorization': `token ${pat}` }
             });
             if (!response.ok) throw new Error('Erreur réseau ou droits insuffisants.');
@@ -39,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const commitMessage = "Mise à jour des sources depuis l'application";
         const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(newContent, null, 2))));
         try {
-            const response = await fetch(`https://api.github.com/repos/<span class="math-inline">\{GITHUB\_OWNER\}/</span>{GITHUB_REPO}/contents/${SOURCES_PATH}`, {
+            // CORRECTION ICI : Utilisation des backticks ``
+            const response = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${SOURCES_PATH}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `token ${pat}`,
@@ -59,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("La mise à jour a échoué.");
         }
     };
-
+    
     const displaySources = (sources) => {
         sourcesList.innerHTML = '';
         sources.forEach((source, index) => {
             const li = document.createElement('li');
-            li.textContent = `<span class="math-inline">\{source\.name\} \(</span>{source.url})`;
+            li.textContent = `${source.name} (${source.url})`;
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Supprimer';
             deleteBtn.dataset.index = index;
@@ -91,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     savePatBtn.addEventListener('click', () => {
         if (patInput.value) {
             localStorage.setItem('github_pat', patInput.value);
-            alert('Jeton sauvegardé ! Vous pouvez maintenant charger et gérer les sources.');
+            alert('Jeton sauvegardé !');
             patInput.value = '';
             loadAndDisplaySources();
         } else {
