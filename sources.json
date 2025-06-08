@@ -28,5 +28,10 @@
     "name": "Science-critique",
     "url": "https://www.senscritique.com",
     "selector": ".elma-title"
+  },
+  {
+    "name": "France 24 (Test)",
+    "url": "https://www.france24.com/fr/",
+    "selector": "h3.article__title a"
   }
 ]
