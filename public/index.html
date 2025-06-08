@@ -4,16 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma Veille Perso</title>
+
     <link rel="stylesheet" href="style.css">
+
     <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#333333">
+
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+      window.OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId: "59056985-fde9-4902-bfde-645134db678c", // N'oublie pas de mettre ton App ID ici !
+        });
+      });
+    </script>
+
 </head>
 <body>
+
     <header>
-        <h1> Ma Veille Perso </h1>
+        <h1>Ma Veille Perso</h1>
+        <nav>
+            <a href="favoris.html">Voir mes favoris ⭐</a>
+        </nav>
     </header>
+
     <main id="articles-container">
         <p>Chargement des articles...</p>
     </main>
+
     <script src="app.js"></script>
+
 </body>
 </html>
