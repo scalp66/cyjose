@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "name": "Menace Théoriste",
+    "url": "https://menace-theoriste.fr/",
+    "selector": ".entry-title a"
+  }
+]
