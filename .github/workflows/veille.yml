@@ -1,8 +1,13 @@
+# Fichier : .github/workflows/veille.yml
+
 name: Lancer la veille d'informations
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    # Se lance toutes les 5 minutes. C'est la fréquence maximale.
+    - cron: '*/5 * * * *'
+  
+  # Permet de toujours lancer le workflow manuellement depuis l'onglet Actions
   workflow_dispatch:
 
 jobs:
@@ -37,3 +42,4 @@ jobs:
         with:
           commit_message: 'Mise à jour automatique des données de veille'
           file_pattern: 'public/veille.json'
+
