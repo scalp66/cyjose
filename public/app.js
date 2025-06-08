@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let allArticles = [];
     let activeSourceFilter = 'all'; // Par défaut, on affiche tout
 
-    // --- LOGIQUE DES FAVORIS (ne change pas) ---
+    // --- LOGIQUE DES FAVORIS ---
     const getFavorites = () => JSON.parse(localStorage.getItem('favoriteArticles') || '[]');
     const saveFavorites = (favorites) => localStorage.setItem('favoriteArticles', JSON.stringify(favorites));
 
@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="source">Source : ${article.source}</div>
                 </div>
                 <div class="article-actions">
+                    <button class="summarize-btn" data-link="${article.link}">Résumer</button>
                     <span class="favorite-btn ${isFavorite ? 'is-favorite' : ''}" data-link="${article.link}" data-title="${article.title}" data-source="${article.source}">⭐</span>
                 </div>
             `;
@@ -61,15 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- SETUP INITIAL ---
-    // Charger les articles depuis veille.json au démarrage
     fetch('veille.json')
         .then(response => response.ok ? response.json() : Promise.reject('Fichier non trouvé'))
         .then(articles => {
-            allArticles = articles; // On sauvegarde tous les articles
+            allArticles = articles; 
 
             // Créer les boutons de filtre par source dynamiquement
             const sources = ['all', ...new Set(allArticles.map(a => a.source))];
-            sourceFiltersContainer.innerHTML = ''; // Vider le conteneur
+            sourceFiltersContainer.innerHTML = '';
             sources.forEach(source => {
                 const btn = document.createElement('button');
                 btn.className = 'source-btn';
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sourceFiltersContainer.appendChild(btn);
             });
 
-            displayArticles(allArticles); // Afficher tous les articles au début
+            displayArticles(allArticles);
         })
         .catch(error => {
             console.error('Erreur de chargement des articles:', error);
@@ -90,37 +90,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- ÉCOUTEURS D'ÉVÉNEMENTS ---
 
-    // Écouteur pour le champ de recherche par mot-clé
     keywordFilterInput.addEventListener('input', applyFilters);
 
-    // Écouteur pour les clics sur les boutons de source
     sourceFiltersContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('source-btn')) {
-            // Mettre à jour le style des boutons
             document.querySelectorAll('.source-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             
-            // Mettre à jour le filtre actif et ré-afficher les articles
             activeSourceFilter = event.target.dataset.source;
             applyFilters();
         }
     });
 
-    // Écouteur pour la gestion des favoris (ne change pas)
-    articlesContainer.addEventListener('click', (event) => {
-        if (event.target.classList.contains('favorite-btn')) {
-            const button = event.target;
-            const articleData = { link: button.dataset.link, title: button.dataset.title, source: button.dataset.source };
+    // Écouteur principal pour les actions sur les articles (Favoris et Résumé)
+    articlesContainer.addEventListener('click', async (event) => {
+        const target = event.target;
+
+        // --- GESTION DU CLIC SUR LES FAVORIS ---
+        if (target.classList.contains('favorite-btn')) {
+            const articleData = { link: target.dataset.link, title: target.dataset.title, source: target.dataset.source };
             let favorites = getFavorites();
             const existingIndex = favorites.findIndex(fav => fav.link === articleData.link);
+            
             if (existingIndex > -1) {
                 favorites.splice(existingIndex, 1);
-                button.classList.remove('is-favorite');
+                target.classList.remove('is-favorite');
             } else {
                 favorites.push(articleData);
-                button.classList.add('is-favorite');
+                target.classList.add('is-favorite');
             }
             saveFavorites(favorites);
+        }
+
+        // --- GESTION DU CLIC SUR LE BOUTON RÉSUMER ---
+        if (target.classList.contains('summarize-btn')) {
+            const articleUrl = target.dataset.link;
+            
+            target.textContent = 'Chargement...';
+            target.disabled = true;
+
+            try {
+                // On appelle notre fonction serverless hébergée sur Netlify
+                const response = await fetch('/.netlify/functions/summarize', {
+                    method: 'POST',
+                    body: JSON.stringify({ articleUrl: articleUrl })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || `Erreur du serveur (${response.status})`);
+                }
+
+                const data = await response.json();
+                alert(`Résumé de l'article :\n\n${data.summary}`);
+
+            } catch (error) {
+                console.error('Erreur lors de la demande de résumé:', error);
+                alert(`Impossible d'obtenir le résumé : ${error.message}`);
+            } finally {
+                target.textContent = 'Résumer';
+                target.disabled = false;
+            }
         }
     });
 });
