@@ -1,10 +1,5 @@
 [
   {
-    "name": "la menace theoriste",
-    "url": "https://menace-theoriste.fr/",
-    "selector": "article"
-  },
-  {
     "name": "afis",
     "url": "https://www.afis.org/",
     "selector": "article"
