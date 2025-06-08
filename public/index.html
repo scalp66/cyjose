@@ -15,17 +15,7 @@
       window.OneSignal = window.OneSignal || [];
       OneSignal.push(function() {
         OneSignal.init({
-<<<<<<< HEAD
-          // IMPORTANT : Remplace ceci par ton véritable App ID de OneSignal
-          appId: "8f0c1d36-97bf-404f-b748-f147327ea3b6", 
-
-          // Ces deux lignes sont CRUCIALES pour résoudre notre problème.
-          // Elles disent à OneSignal d'utiliser notre propre service worker.
-=======
-          appId: "59056985-fde9-4902-bfde-645134db678c", // Assure-toi que le bon ID est ici
-
-          // 👇 ON AJOUTE CES DEUX LIGNES POUR SPÉCIFIER NOTRE PROPRE FICHIER 👇
->>>>>>> def33e7ce1edb1658329497b2782bfab14a480c8
+          appId: "8f0c1d36-97bf-404f-b748-f147327ea3b6", // N'oublie pas de mettre ton App ID ici !
           serviceWorkerPath: "service-worker.js",
           serviceWorkerUpdaterPath: "service-worker.js"
         });
@@ -39,6 +29,7 @@
         <h1>Ma Veille Perso</h1>
         <nav>
             <a href="favoris.html">Voir mes favoris ⭐</a>
+            <a href="parametres.html">Paramètres ⚙️</a>
         </nav>
     </header>
 
