@@ -8,5 +8,10 @@
     "name": "afis",
     "url": "https://www.afis.org/",
     "selector": "article"
+  },
+  {
+    "name": "le monde",
+    "url": "https://www.lemonde.fr/",
+    "selector": "article"
   }
 ]
