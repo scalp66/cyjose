@@ -3,5 +3,10 @@
     "name": "Hacker News",
     "url": "https://news.ycombinator.com/",
     "selector": ".titleline > a"
+  },
+  {
+    "name": "la menace theoriste",
+    "url": "https://menace-theoriste.fr/",
+    "selector": "article"
   }
 ]
