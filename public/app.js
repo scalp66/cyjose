@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const keywordFilterInput = document.getElementById('keyword-filter');
     const sourceFiltersContainer = document.getElementById('source-filters');
 
-    // Variable pour stocker tous les articles chargés une seule fois
+    // Variable globale pour stocker tous les articles
     let allArticles = [];
-    let activeSourceFilter = 'all'; // Par défaut, on affiche tout
+    let activeSourceFilter = 'all';
 
     // --- LOGIQUE DES FAVORIS ---
     const getFavorites = () => JSON.parse(localStorage.getItem('favoriteArticles') || '[]');
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const favoriteLinks = new Set(favorites.map(f => f.link));
 
         if (articlesToDisplay.length === 0) {
-            articlesContainer.innerHTML = '<p>Aucun article ne correspond à vos filtres.</p>';
+            articlesContainer.innerHTML = '<p>Aucun article à afficher pour le moment.</p>';
             return;
         }
 
@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
             articleElement.innerHTML = `
                 <div class="article-content">
                     <a href="${article.link}" target="_blank" rel="noopener noreferrer">${article.title}</a>
-                    <div class="source">Source : ${article.source}</div>
+                    <div class="source">Source : ${article.source || article.name}</div>
                 </div>
                 <div class="article-actions">
                     <button class="summarize-btn" data-link="${article.link}">Résumer</button>
-                    <span class="favorite-btn ${isFavorite ? 'is-favorite' : ''}" data-link="${article.link}" data-title="${article.title}" data-source="${article.source}">⭐</span>
+                    <span class="favorite-btn ${isFavorite ? 'is-favorite' : ''}" data-link="${article.link}" data-title="${article.title}" data-source="${article.source || article.name}">⭐</span>
                 </div>
             `;
             articlesContainer.appendChild(articleElement);
@@ -48,12 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let filteredArticles = allArticles;
 
-        // 1. Filtre par source
         if (activeSourceFilter !== 'all') {
-            filteredArticles = filteredArticles.filter(article => article.source === activeSourceFilter);
+            filteredArticles = filteredArticles.filter(article => (article.source || article.name) === activeSourceFilter);
         }
 
-        // 2. Filtre par mot-clé
         if (keyword.length > 0) {
             filteredArticles = filteredArticles.filter(article => article.title.toLowerCase().includes(keyword));
         }
@@ -61,24 +59,38 @@ document.addEventListener('DOMContentLoaded', () => {
         displayArticles(filteredArticles);
     };
 
-    // --- SETUP INITIAL ---
-    fetch('veille.json')
-        .then(response => response.ok ? response.json() : Promise.reject('Fichier non trouvé'))
-        .then(articles => {
-            allArticles = articles; 
+    // --- SETUP INITIAL (MODIFIÉ) ---
+    const fetchVeille = fetch('veille.json').then(res => res.ok ? res.json() : []).catch(() => []);
+    const fetchCustom = fetch('custom-articles.json').then(res => res.ok ? res.json() : []).catch(() => []);
 
-            // Créer les boutons de filtre par source dynamiquement
-            const sources = ['all', ...new Set(allArticles.map(a => a.source))];
+    Promise.all([fetchVeille, fetchCustom])
+        .then(([veilleArticles, customArticles]) => {
+            const combinedArticles = [...customArticles, ...veilleArticles];
+
+            const uniqueLinks = new Set();
+            const uniqueArticles = combinedArticles.filter(article => {
+                if (!article.link || uniqueLinks.has(article.link)) {
+                    return false;
+                }
+                uniqueLinks.add(article.link);
+                return true;
+            });
+
+            uniqueArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            allArticles = uniqueArticles; // Mise à jour de la variable globale
+
+            const sources = ['all', ...new Set(allArticles.map(a => a.source || a.name))];
             sourceFiltersContainer.innerHTML = '';
             sources.forEach(source => {
-                const btn = document.createElement('button');
-                btn.className = 'source-btn';
-                btn.dataset.source = source;
-                btn.textContent = source === 'all' ? 'Toutes les sources' : source;
-                if (source === 'all') {
-                    btn.classList.add('active');
+                if(source) { // S'assurer que la source n'est pas vide
+                    const btn = document.createElement('button');
+                    btn.className = 'source-btn';
+                    btn.dataset.source = source;
+                    btn.textContent = source === 'all' ? 'Toutes les sources' : source;
+                    if (source === 'all') btn.classList.add('active');
+                    sourceFiltersContainer.appendChild(btn);
                 }
-                sourceFiltersContainer.appendChild(btn);
             });
 
             displayArticles(allArticles);
@@ -96,17 +108,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.classList.contains('source-btn')) {
             document.querySelectorAll('.source-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-            
             activeSourceFilter = event.target.dataset.source;
             applyFilters();
         }
     });
 
-    // Écouteur principal pour les actions sur les articles (Favoris et Résumé)
     articlesContainer.addEventListener('click', async (event) => {
         const target = event.target;
 
-        // --- GESTION DU CLIC SUR LES FAVORIS ---
         if (target.classList.contains('favorite-btn')) {
             const articleData = { link: target.dataset.link, title: target.dataset.title, source: target.dataset.source };
             let favorites = getFavorites();
@@ -122,28 +131,22 @@ document.addEventListener('DOMContentLoaded', () => {
             saveFavorites(favorites);
         }
 
-        // --- GESTION DU CLIC SUR LE BOUTON RÉSUMER ---
         if (target.classList.contains('summarize-btn')) {
             const articleUrl = target.dataset.link;
-            
             target.textContent = 'Chargement...';
             target.disabled = true;
 
             try {
-                // On appelle notre fonction serverless hébergée sur Netlify
                 const response = await fetch('/.netlify/functions/summarize', {
                     method: 'POST',
                     body: JSON.stringify({ articleUrl: articleUrl })
                 });
-
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(errorData.error || `Erreur du serveur (${response.status})`);
                 }
-
                 const data = await response.json();
                 alert(`Résumé de l'article :\n\n${data.summary}`);
-
             } catch (error) {
                 console.error('Erreur lors de la demande de résumé:', error);
                 alert(`Impossible d'obtenir le résumé : ${error.message}`);
