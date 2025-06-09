@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const statusMessage = document.getElementById('status-message');
-
-    // Récupérer les données partagées depuis l'URL
     const params = new URLSearchParams(window.location.search);
     const sharedUrl = params.get('url');
     const sharedTitle = params.get('title') || 'Article partagé';
@@ -11,7 +9,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    // On utilise la même logique que pour les paramètres pour mettre à jour un fichier sur GitHub
     const GITHUB_OWNER = "scalp66";
     const GITHUB_REPO = "cyjose";
     const CUSTOM_ARTICLES_PATH = "custom-articles.json";
@@ -23,7 +20,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        // 1. Récupérer le fichier actuel pour obtenir son 'sha'
         const fileResponse = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${CUSTOM_ARTICLES_PATH}`, {
             headers: { 'Authorization': `token ${pat}` }
         });
@@ -34,9 +30,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const decodedContent = decodeURIComponent(escape(atob(fileData.content)));
         const customArticles = JSON.parse(decodedContent);
 
-        // 2. Ajouter le nouvel article en haut de la liste
         const newArticle = {
-            name: "Article Partagé", // On pourrait améliorer ça plus tard
+            name: "Article Partagé",
             type: "shared",
             title: sharedTitle,
             link: sharedUrl,
@@ -44,25 +39,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
         customArticles.unshift(newArticle);
 
-        // 3. Envoyer la mise à jour à GitHub
         const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(customArticles, null, 2))));
         const updateResponse = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${CUSTOM_ARTICLES_PATH}`, {
             method: 'PUT',
-            headers: {
-                'Authorization': `token ${pat}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                message: "Ajout d'un nouvel article partagé",
-                content: contentEncoded,
-                sha: sha
-            })
+            headers: { 'Authorization': `token ${pat}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: "Ajout d'un nouvel article partagé", content: contentEncoded, sha: sha })
         });
 
         if (!updateResponse.ok) throw new Error("La mise à jour du fichier sur GitHub a échoué.");
 
         statusMessage.textContent = "Article ajouté avec succès ! Vous pouvez fermer cette fenêtre.";
-        // On ferme la fenêtre après 2 secondes
         setTimeout(() => window.close(), 2000);
 
     } catch (error) {
