@@ -1,10 +1,5 @@
 [
   {
-    "name": "France 24 (Test)",
-    "url": "https://www.france24.com/fr/",
-    "selector": "h3.article__title a"
-  },
-  {
     "name": "Le Figaro (Test)",
     "url": "https://www.lefigaro.fr/",
     "selector": "a.fig-toparticles__link"
