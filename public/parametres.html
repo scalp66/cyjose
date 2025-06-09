@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Fichier à modifier : public/parametres.html (Version Complète)<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -16,6 +16,7 @@
     </header>
 
     <main>
+        <!-- Section pour le jeton GitHub (ne change pas) -->
         <div class="settings-section">
             <h2>Jeton d'Accès GitHub (PAT)</h2>
             <p class="small-text">Ce jeton est nécessaire pour modifier les sources. Il est stocké uniquement dans votre navigateur.</p>
@@ -23,15 +24,30 @@
             <button id="save-pat-btn">Sauvegarder le jeton</button>
         </div>
 
+        <!-- NOUVEAU : Section pour l'ajout rapide par RSS -->
+        <div class="settings-section">
+            <h2>Ajout Rapide et Fiable (RSS)</h2>
+            <p class="small-text">Collez l'URL d'un site (ex: https://www.lemonde.fr), nous essaierons de trouver son flux RSS automatiquement.</p>
+            <form id="find-rss-form">
+                <input type="url" id="site-url-input" placeholder="URL du site à analyser..." required>
+                <button type="submit">Analyser le site</button>
+            </form>
+            <div id="rss-results-container">
+                <!-- Les résultats de l'analyse apparaîtront ici -->
+            </div>
+        </div>
+        
+        <!-- Section pour les sources actuelles (ne change pas) -->
         <div class="settings-section">
             <h2>Sources Actuelles</h2>
             <ul id="sources-list">
                 <li>Veuillez sauvegarder un jeton pour charger les sources.</li>
             </ul>
         </div>
-
+        
+        <!-- L'ancien formulaire devient la méthode "manuelle" -->
         <div class="settings-section">
-            <h2>Ajouter une Nouvelle Source</h2>
+            <h2>Ajouter une Source Manuellement (Scraping)</h2>
             <form id="add-source-form">
                 <input type="text" id="source-name" placeholder="Nom de la source (ex: Le Monde)" required>
                 <input type="url" id="source-url" placeholder="URL de la page (https://...)" required>
