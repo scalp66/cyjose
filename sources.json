@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "name": "BBC News",
+    "url": "https://www.bbc.com/news",
+    "selector": "[data-testid=\"card-headline\"] a"
+  }
+]
