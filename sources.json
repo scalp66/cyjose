@@ -4,5 +4,11 @@
     "type": "rss",
     "url": "https://www.lemonde.fr/rss/une.xml",
     "selector": ""
+  },
+  {
+    "name": "TechCrunch (Test Final)",
+    "type": "scrape",
+    "url": "https://techcrunch.com/",
+    "selector": "h2.wp-block-post-title a"
   }
 ]
