@@ -1,8 +1,8 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-const axios = require('axios'); // On le garde pour OneSignal
+const axios = require('axios'); // Gardé pour OneSignal
 
-// --- CONFIGURATION (ne change pas) ---
+// --- CONFIGURATION ---
 const SOURCES_FILE = 'sources.json';
 const VEILLE_FILE = 'public/veille.json';
 
@@ -12,16 +12,32 @@ const sendNotification = async (title) => {
         console.log('Variables OneSignal non configurées, notification non envoyée.');
         return;
     }
-    // ... (le reste de la fonction est identique)
+    const notification = {
+        app_id: process.env.ONESIGNAL_APP_ID,
+        contents: { en: title },
+        headings: { en: 'Nouvel article trouvé !' },
+        included_segments: ["Total Subscriptions"]
+    };
+    try {
+        await axios.post('https://onesignal.com/api/v1/notifications', notification, {
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'Authorization': `Basic ${process.env.ONESIGNAL_REST_API_KEY}`
+            }
+        });
+        console.log('✔️ Notification envoyée pour :', title);
+    } catch (error) {
+        console.error('❌ Erreur OneSignal:', error.response ? error.response.data : error.message);
+    }
 };
 
 const fetchArticles = async () => {
-    console.log('🤖 Démarrage de la veille avec le moteur Puppeteer...');
+    console.log('🤖 Démarrage de la veille avec le moteur Puppeteer (version patiente)...');
     
-    // --- LECTURE DES SOURCES ET DES ANCIENS ARTICLES (ne change pas) ---
+    // --- LECTURE DES SOURCES ET DES ANCIENS ARTICLES ---
     let sourcesToScrape = [];
     try {
-        sourcesToScrape = JSON.parse(fs.readFileSync(SOURCES_FILE));
+        sourcesToScrape = JSON.parse(fs.readFileSync(SOURCES_FILE, 'utf-8'));
         console.log(`🔍 ${sourcesToScrape.length} source(s) à analyser.`);
     } catch (e) {
         console.log("❌ Fichier sources.json introuvable. Arrêt.");
@@ -30,42 +46,45 @@ const fetchArticles = async () => {
 
     let oldArticles = [];
     try {
-        oldArticles = JSON.parse(fs.readFileSync(VEILLE_FILE));
-    } catch (e) { /* Pas grave si le fichier n'existe pas */ }
+        oldArticles = JSON.parse(fs.readFileSync(VEILLE_FILE, 'utf-8'));
+    } catch (e) { /* Pas grave */ }
     const oldLinks = new Set(oldArticles.map(a => a.link));
 
-    // --- NOUVELLE LOGIQUE DE SCRAPING AVEC PUPPETEER ---
-    let newArticles = [];
+    // --- LOGIQUE DE SCRAPING AVEC PUPPETEER ---
+    let allFoundArticles = [];
     let browser;
     try {
         console.log('🚀 Lancement du navigateur headless...');
         browser = await puppeteer.launch({ 
-            args: ['--no-sandbox', '--disable-setuid-sandbox'] // Nécessaire pour les serveurs comme GitHub Actions
+            executablePath: process.env.PUPPETEER_EXECUTABLE_PATH, // Important pour GitHub Actions
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
         const page = await browser.newPage();
 
         for (const source of sourcesToScrape) {
             try {
                 console.log(`- Visite de ${source.name}...`);
-                await page.goto(source.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+                // --- LA CORRECTION EST ICI ---
+                // On attend que la page soit complètement "calme"
+                await page.goto(source.url, { waitUntil: 'networkidle2', timeout: 60000 });
 
                 const articlesFromPage = await page.evaluate((selector) => {
-                    const foundArticles = [];
-                    // On interroge la page une fois qu'elle est chargée par le navigateur
+                    const found = [];
                     document.querySelectorAll(selector).forEach(element => {
                         if (element.innerText && element.href) {
-                            foundArticles.push({
+                            found.push({
                                 title: element.innerText.trim(),
                                 link: element.href
                             });
                         }
                     });
-                    return foundArticles;
-                }, source.selector); // On passe notre sélecteur à la page
+                    return found;
+                }, source.selector);
 
                 articlesFromPage.forEach(article => {
-                    newArticles.push({ ...article, source: source.name, date: new Date() });
+                    allFoundArticles.push({ ...article, source: source.name, date: new Date() });
                 });
+                console.log(`  -> ${articlesFromPage.length} articles trouvés sur ${source.name}.`);
 
             } catch (error) {
                 console.error(`❌ Erreur sur la source ${source.name}:`, error.message);
@@ -76,22 +95,24 @@ const fetchArticles = async () => {
     } finally {
         if (browser) {
             await browser.close();
-            console.log(' navigateur fermé.');
+            console.log(' navigateurs fermé.');
         }
     }
     
-    // --- COMPARAISON, NOTIFICATION, SAUVEGARDE (ne change pas) ---
-    const trulyNewArticles = newArticles.filter(a => !oldLinks.has(a.link));
+    // --- COMPARAISON, NOTIFICATION, SAUVEGARDE ---
+    const trulyNewArticles = allFoundArticles.filter(a => !oldLinks.has(a.link));
+    
     if (trulyNewArticles.length > 0) {
         console.log(`📢 ${trulyNewArticles.length} vrais nouveaux articles trouvés !`);
         for (const article of trulyNewArticles) {
-            // await sendNotification(article.title); // Temporairement désactivé pour les tests
+            await sendNotification(article.title);
         }
     } else {
         console.log('➡️ Pas de nouveaux articles cette fois.');
     }
 
-    const articlesToSave = [...trulyNewArticles, ...oldArticles].slice(0, 50); // On sauvegarde les nouveaux + les anciens
+    // On sauvegarde la liste fraîchement récupérée, limitée aux 50 derniers
+    const articlesToSave = allFoundArticles.slice(0, 50); 
     fs.writeFileSync(VEILLE_FILE, JSON.stringify(articlesToSave, null, 2));
     console.log(`✔️ Fichier veille.json mis à jour avec ${articlesToSave.length} articles.`);
 };
