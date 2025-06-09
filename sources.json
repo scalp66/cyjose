@@ -10,5 +10,11 @@
     "type": "scrape",
     "url": "https://techcrunch.com/",
     "selector": "h2.wp-block-post-title a"
+  },
+  {
+    "name": "La Menace Théoriste – Le site de l'esprit critique",
+    "type": "rss",
+    "url": "https://menace-theoriste.fr/feed/",
+    "selector": ""
   }
 ]
