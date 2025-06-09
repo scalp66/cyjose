@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Chrome for Puppeteer
-        run: npm exec -- puppeteer browsers install chrome
+      - name: Install Chrome for Puppeteer with sudo
+        run: sudo npm exec -- puppeteer browsers install chrome --browser-executable-path=/usr/bin/google-chrome
 
       - name: Run scraper
         run: node scraper.js
