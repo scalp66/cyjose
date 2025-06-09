@@ -1,7 +1,8 @@
 [
   {
-    "name": "BBC News",
-    "url": "https://www.bbc.com/news",
-    "selector": "[data-testid=\"card-headline\"] a"
+    "name": "Le Monde (RSS)",
+    "type": "rss",
+    "url": "https://www.lemonde.fr/rss/une.xml",
+    "selector": ""
   }
 ]
