@@ -1,16 +1,17 @@
-teer = require('puppeteer');
-const fs = require('fs');const puppe
-const axios = require('axios'); // Gardé pour OneSignal
+const puppeteer = require('puppeteer');
+const fs = require('fs');
+const axios = require('axios');
+const Parser = require('rss-parser'); // <-- NOTRE NOUVEL OUTIL
 
 // --- CONFIGURATION ---
 const SOURCES_FILE = 'sources.json';
 const VEILLE_FILE = 'public/veille.json';
+const parser = new Parser(); // On initialise le lecteur RSS
 
-// --- FONCTION ONESIGNAL ---
+// --- FONCTION ONESIGNAL (ne change pas) ---
 const sendNotification = async (title) => {
     if (!process.env.ONESIGNAL_APP_ID || !process.env.ONESIGNAL_REST_API_KEY) {
-        console.log('Variables OneSignal non configurées, notification non envoyée.');
-        return;
+        return; // Pas de log ici pour ne pas saturer le journal
     }
     const notification = {
         app_id: process.env.ONESIGNAL_APP_ID,
@@ -31,56 +32,10 @@ const sendNotification = async (title) => {
     }
 };
 
-// --- NOUVEAU : Fonction de gestion de cookies plus robuste ---
-const handleCookieBanner = async (page) => {
-    console.log('  -> Recherche d\'une bannière de cookies...');
-    const acceptKeywords = ['accept', 'agree', 'accepter', 'consentir', 'yes, i agree', 'j\'accepte'];
-
-    try {
-        // Stratégie 1: Chercher un bouton directement sur la page principale
-        const mainPageButtonHandle = await page.evaluateHandle((keywords) => {
-            const buttons = Array.from(document.querySelectorAll('button, a[role="button"]'));
-            return buttons.find(b => keywords.some(kw => b.innerText.toLowerCase().includes(kw)));
-        }, acceptKeywords);
-
-        if (mainPageButtonHandle && (await mainPageButtonHandle.asElement())) {
-            console.log('  -> Bouton trouvé sur la page principale. Clic...');
-            await mainPageButtonHandle.click();
-            await new Promise(resolve => setTimeout(resolve, 2000)); // Attendre que l'overlay disparaisse
-            return;
-        }
-
-        // Stratégie 2: Chercher dans une iframe
-        console.log('  -> Pas de bouton direct, recherche d\'une iframe de consentement...');
-        const iframeElementHandle = await page.waitForSelector('iframe[id*="sp_message_iframe"], iframe[id*="cmp"]', { timeout: 5000 }).catch(() => null);
-
-        if (iframeElementHandle) {
-            const frame = await iframeElementHandle.contentFrame();
-            if (frame) {
-                console.log('  -> Iframe trouvée, recherche du bouton à l\'intérieur...');
-                const buttonInFrameHandle = await frame.evaluateHandle((keywords) => {
-                    const buttons = Array.from(document.querySelectorAll('button, a[role="button"]'));
-                    return buttons.find(b => keywords.some(kw => b.innerText.toLowerCase().includes(kw) || (b.title && b.title.toLowerCase().includes(kw))));
-                }, acceptKeywords);
-
-                if (buttonInFrameHandle && (await buttonInFrameHandle.asElement())) {
-                    console.log('  -> Bouton trouvé dans l\'iframe. Clic...');
-                    await buttonInFrameHandle.click();
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                    return;
-                }
-            }
-        }
-        console.log('  -> Aucune bannière de cookies gérable n\'a été trouvée.');
-    } catch (error) {
-        console.log(`  -> Erreur lors de la gestion des cookies : ${error.message}. On continue...`);
-    }
-};
-
-
 const fetchArticles = async () => {
-    console.log('🤖 Démarrage de la veille avec le moteur Puppeteer (version V3)...');
+    console.log('🤖 Démarrage de la veille avec le moteur HYBRIDE...');
     
+    // --- LECTURE DES SOURCES ET DES ANCIENS ARTICLES ---
     let sourcesToScrape = [];
     try {
         sourcesToScrape = JSON.parse(fs.readFileSync(SOURCES_FILE, 'utf-8'));
@@ -93,43 +48,56 @@ const fetchArticles = async () => {
     let oldArticles = [];
     try {
         oldArticles = JSON.parse(fs.readFileSync(VEILLE_FILE, 'utf-8'));
-    } catch (e) { /* Pas grave */ }
+    } catch (e) { /* Pas grave si le fichier n'existe pas */ }
     const oldLinks = new Set(oldArticles.map(a => a.link));
 
+    // --- LOGIQUE DE COLLECTE HYBRIDE ---
     let allFoundArticles = [];
-    let browser;
-    try {
-        console.log('🚀 Lancement du navigateur headless...');
-        browser = await puppeteer.launch({ 
-            executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
-            args: ['--no-sandbox', '--disable-setuid-sandbox']
-        });
-        const page = await browser.newPage();
-        await page.setViewport({ width: 1280, height: 800 });
+    let browser = null; // On ne lance le navigateur que si nécessaire
 
-        for (const source of sourcesToScrape) {
+    for (const source of sourcesToScrape) {
+        console.log(`- Traitement de ${source.name}...`);
+
+        if (source.type === 'rss') {
+            // --- STRATÉGIE 1 : LECTURE DU FLUX RSS (Rapide et Fiable) ---
             try {
-                console.log(`- Visite de ${source.name}...`);
-                await page.goto(source.url, { waitUntil: 'networkidle2', timeout: 60000 });
-
-                await handleCookieBanner(page);
-                
-                console.log('  -> Défilement de la page pour charger plus de contenu...');
-                await page.evaluate(async () => {
-                    for (let i = 0; i < 3; i++) {
-                        window.scrollBy(0, window.innerHeight);
-                        await new Promise(resolve => setTimeout(resolve, 500));
+                const feed = await parser.parseURL(source.url);
+                feed.items.forEach(item => {
+                    if (item.title && item.link) {
+                        allFoundArticles.push({
+                            title: item.title,
+                            link: item.link,
+                            source: source.name,
+                            date: item.isoDate || new Date()
+                        });
                     }
                 });
+                console.log(`  -> RSS : ${feed.items.length} articles trouvés.`);
+            } catch (error) {
+                console.error(`❌ Erreur sur le flux RSS ${source.name}:`, error.message);
+            }
+        } else {
+            // --- STRATÉGIE 2 : SCRAPING AVEC PUPPETEER (Solution de secours) ---
+            try {
+                // On s'assure que le navigateur est bien lancé (une seule fois)
+                if (!browser) {
+                    console.log('🚀 Lancement du navigateur headless pour le scraping...');
+                    browser = await puppeteer.launch({ 
+                        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+                        args: ['--no-sandbox', '--disable-setuid-sandbox']
+                    });
+                }
+                const page = await browser.newPage();
+                await page.setViewport({ width: 1280, height: 800 });
+                await page.goto(source.url, { waitUntil: 'networkidle2', timeout: 60000 });
+                
+                // (Ici on pourrait remettre la logique pour les cookies si nécessaire)
 
                 const articlesFromPage = await page.evaluate((selector) => {
                     const found = [];
                     document.querySelectorAll(selector).forEach(element => {
                         if (element.innerText && element.href && element.href.startsWith('http')) {
-                            found.push({
-                                title: element.innerText.trim(),
-                                link: element.href
-                            });
+                            found.push({ title: element.innerText.trim(), link: element.href });
                         }
                     });
                     return found;
@@ -138,21 +106,20 @@ const fetchArticles = async () => {
                 articlesFromPage.forEach(article => {
                     allFoundArticles.push({ ...article, source: source.name, date: new Date() });
                 });
-                console.log(`  -> ${articlesFromPage.length} articles trouvés sur ${source.name}.`);
-
+                console.log(`  -> Scraper : ${articlesFromPage.length} articles trouvés.`);
+                await page.close();
             } catch (error) {
-                console.error(`❌ Erreur sur la source ${source.name}:`, error.message);
+                console.error(`❌ Erreur de scraping sur ${source.name}:`, error.message);
             }
         }
-    } catch (error) {
-        console.error("❌ Erreur majeure de Puppeteer:", error);
-    } finally {
-        if (browser) {
-            await browser.close();
-            console.log(' navigateurs fermé.');
-        }
+    }
+
+    if (browser) {
+        await browser.close();
+        console.log(' navigateurs fermé.');
     }
     
+    // --- COMPARAISON, NOTIFICATION, SAUVEGARDE (ne change pas) ---
     const trulyNewArticles = allFoundArticles.filter(a => !oldLinks.has(a.link));
     
     if (trulyNewArticles.length > 0) {
@@ -164,7 +131,10 @@ const fetchArticles = async () => {
         console.log('➡️ Pas de nouveaux articles cette fois.');
     }
 
+    // On trie par date pour avoir les plus récents en haut et on garde les 50 premiers
+    allFoundArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
     const articlesToSave = allFoundArticles.slice(0, 50); 
+    
     fs.writeFileSync(VEILLE_FILE, JSON.stringify(articlesToSave, null, 2));
     console.log(`✔️ Fichier veille.json mis à jour avec ${articlesToSave.length} articles.`);
 };
