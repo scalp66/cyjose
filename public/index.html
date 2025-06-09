@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Métadonnées de base -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma Veille Perso</title>
 
+    <!-- Lien vers la feuille de style CSS -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Pour la PWA (Progressive Web App) -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#333333">
+    <meta name="theme-color" content="#1a202c">
 
+    <!-- Pour les Notifications Push (OneSignal) -->
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <script>
       window.OneSignal = window.OneSignal || [];
       OneSignal.push(function() {
         OneSignal.init({
-          appId: "59056985-fde9-4902-bfde-645134db678c", // N'oublie pas de mettre ton App ID ici !
+          appId: "VOTRE_APP_ID_ONESIGNAL", // Assurez-vous que le bon ID est ici
+          // Ces lignes sont cruciales pour dire à OneSignal quel fichier utiliser
           serviceWorkerPath: "service-worker.js",
           serviceWorkerUpdaterPath: "service-worker.js"
         });
@@ -34,10 +39,10 @@
     </header>
 
     <main>
+        <!-- ... reste du contenu ... -->
         <div class="filters-container">
             <input type="search" id="keyword-filter" placeholder="Filtrer par mot-clé...">
-            <div id="source-filters" class="source-filters">
-                </div>
+            <div id="source-filters" class="source-filters"></div>
         </div>
         
         <div id="articles-container">
@@ -47,17 +52,7 @@
 
     <script src="app.js"></script>
     
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js')
-                .then(registration => {
-                    console.log('Service Worker principal enregistré avec succès !');
-                })
-                .catch(error => {
-                    console.error('Erreur lors de l\'enregistrement du Service Worker :', error);
-                });
-        }
-    </script>
+    <!-- Le script d'enregistrement manuel a été supprimé pour laisser OneSignal gérer le processus. -->
 
 </body>
 </html>
