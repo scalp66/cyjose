@@ -16,5 +16,11 @@
     "type": "rss",
     "url": "https://menace-theoriste.fr/feed/",
     "selector": ""
+  },
+  {
+    "name": "CorteX - Le Cortecs",
+    "type": "rss",
+    "url": "https://cortecs.org/feed/",
+    "selector": ""
   }
 ]
