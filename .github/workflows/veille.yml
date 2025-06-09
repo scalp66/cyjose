@@ -8,10 +8,8 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,45 +22,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # NOUVELLE ÉTAPE : On installe le navigateur pour Puppeteer
       - name: Install Chrome for Puppeteer
         run: npx puppeteer browsers install chrome
 
       - name: Run scraper
+        run: node scraper.js
         env:
           ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
           ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
-        run: node scraper.js
 
       - name: Commit and push if it changed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'Mise à jour automatique des données de veille'
           file_pattern: 'public/veille.json'
-
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run scraper
-        # Ce bloc 'env' injecte les secrets dans le script
-        env:
-          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
-          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
-        run: node scraper.js
-
-      - name: Commit and push if it changed
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: 'Mise à jour automatique des données de veille'
-          file_pattern: 'public/veille.json'
-
