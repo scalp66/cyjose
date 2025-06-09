@@ -22,9 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Chrome for Puppeteer
-        run: npm exec -- puppeteer browsers install chrome
-
       - name: Run scraper
         run: node scraper.js
         env:
