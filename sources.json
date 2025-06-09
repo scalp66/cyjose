@@ -5,11 +5,6 @@
     "selector": ".article__title-link"
   },
   {
-    "name": "Le Cortecs",
-    "url": "https://cortecs.org/",
-    "selector": "h3.entry-title a"
-  },
-  {
     "name": "Science-critique",
     "url": "https://www.senscritique.com",
     "selector": ".elma-title"
