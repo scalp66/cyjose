@@ -1,10 +1,5 @@
 [
   {
-    "name": "Afis Science",
-    "url": "https://www.afis.org/",
-    "selector": ".elementor-post__title a"
-  },
-  {
     "name": "le monde",
     "url": "https://www.lemonde.fr/",
     "selector": ".article__title-link"
