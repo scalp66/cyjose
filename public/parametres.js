@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateSourcesFile = async (newContent, sha) => {
         const pat = localStorage.getItem('github_pat');
         const commitMessage = "Mise à jour des sources depuis l'application";
-        // Correction de l'encodage pour supporter les caractères spéciaux
         const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(newContent, null, 2))));
         try {
             const response = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${SOURCES_PATH}`, {
@@ -123,24 +122,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(errorData.error || 'Erreur inconnue du serveur');
             }
             const data = await response.json();
+            
+            // NOUVELLE LOGIQUE : On affiche un formulaire pré-rempli
             rssResultsContainer.innerHTML = `
                 <p><strong>Flux RSS trouvé !</strong></p>
-                <p>Titre du site : ${data.siteTitle}</p>
-                <p>URL du flux : ${data.rssUrl}</p>
-                <button id="confirm-add-rss-btn" data-name="${data.siteTitle}" data-url="${data.rssUrl}">Ajouter cette source</button>
+                <form id="confirm-rss-form">
+                    <label for="rss-name">Nom de la source :</label>
+                    <input type="text" id="rss-name" value="${data.siteTitle}" required>
+                    <label for="rss-url">URL du flux :</label>
+                    <input type="url" id="rss-url" value="${data.rssUrl}" required>
+                    <button type="submit">Confirmer l'ajout</button>
+                </form>
             `;
         } catch (error) {
             rssResultsContainer.innerHTML = `<p style="color: red;">Erreur : ${error.message}</p>`;
         }
     });
 
-    rssResultsContainer.addEventListener('click', async (event) => {
-        if (event.target.id === 'confirm-add-rss-btn') {
-            const button = event.target;
+    // Écouteur pour la soumission du NOUVEAU formulaire de confirmation
+    rssResultsContainer.addEventListener('submit', async (event) => {
+        if (event.target.id === 'confirm-rss-form') {
+            event.preventDefault();
             const newSource = {
-                name: button.dataset.name || "Source RSS",
+                name: document.getElementById('rss-name').value,
                 type: "rss",
-                url: button.dataset.url,
+                url: document.getElementById('rss-url').value,
                 selector: ""
             };
             
@@ -155,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Ajouter une source manuellement (scraping)
     addSourceForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         const newSource = {
@@ -172,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Supprimer une source
     sourcesList.addEventListener('click', async (event) => {
         if (event.target.classList.contains('delete-btn')) {
             if (!confirm('Êtes-vous sûr de vouloir supprimer cette source ?')) return;
