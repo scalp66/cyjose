@@ -14,6 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # NOUVELLE MÉTHODE : On utilise une action dédiée pour installer Chrome
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+        id: setup-chrome # On donne un ID à l'étape pour utiliser son résultat
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -22,12 +27,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Chrome for Puppeteer with sudo
-        run: sudo npm exec -- puppeteer browsers install chrome --browser-executable-path=/usr/bin/google-chrome
-
       - name: Run scraper
         run: node scraper.js
         env:
+          # On indique à Puppeteer où trouver le Chrome qui vient d'être installé
+          PUPPETEER_EXECUTABLE_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
           ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
           ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
 
