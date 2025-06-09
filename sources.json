@@ -1,10 +1,5 @@
 [
   {
-    "name": "le monde",
-    "url": "https://www.lemonde.fr/",
-    "selector": ".article__title-link"
-  },
-  {
     "name": "France 24 (Test)",
     "url": "https://www.france24.com/fr/",
     "selector": "h3.article__title a"
