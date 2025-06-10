@@ -1,21 +1,29 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    const statusTitle = document.getElementById('status-title');
     const statusMessage = document.getElementById('status-message');
+    const sharedUrlElement = document.getElementById('shared-url');
+
     const params = new URLSearchParams(window.location.search);
-    const sharedUrl = params.get('url');
-    const sharedTitle = params.get('title') || 'Article partagé';
+    // On cherche maintenant le nouveau nom de paramètre
+    const sharedUrl = params.get('shared_url'); 
+    const sharedTitle = params.get('shared_title') || 'Article partagé';
 
     if (!sharedUrl) {
-        statusMessage.textContent = "Erreur : URL manquante. Vous pouvez fermer cette fenêtre.";
+        statusTitle.textContent = "Erreur";
+        statusMessage.textContent = "URL manquante. Vous pouvez fermer cette fenêtre.";
         return;
     }
 
+    sharedUrlElement.textContent = `URL : ${sharedUrl}`;
+
     const GITHUB_OWNER = "scalp66";
     const GITHUB_REPO = "cyjose";
-    const CUSTOM_ARTICLES_PATH = "public/custom-articles.json"; // Le chemin correct
+    const CUSTOM_ARTICLES_PATH = "public/custom-articles.json"; 
     const pat = localStorage.getItem('github_pat');
 
     if (!pat) {
-        statusMessage.textContent = "Erreur : Jeton d'accès GitHub non trouvé. Veuillez vous authentifier sur la page des paramètres de l'application.";
+        statusTitle.textContent = "Erreur d'Authentification";
+        statusMessage.textContent = "Jeton d'accès GitHub non trouvé. Veuillez vous authentifier sur la page des paramètres de l'application.";
         return;
     }
 
@@ -23,7 +31,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const fileResponse = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${CUSTOM_ARTICLES_PATH}`, {
             headers: { 'Authorization': `token ${pat}` }
         });
-        if (!fileResponse.ok) throw new Error("Impossible de récupérer le fichier des articles personnalisés.");
+        if (!fileResponse.ok) {
+             const errorData = await fileResponse.json();
+             throw new Error(`Impossible de récupérer le fichier des articles : ${errorData.message}`);
+        }
         
         const fileData = await fileResponse.json();
         const sha = fileData.sha;
@@ -48,11 +59,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (!updateResponse.ok) throw new Error("La mise à jour du fichier sur GitHub a échoué.");
 
-        statusMessage.textContent = "Article ajouté avec succès ! Vous pouvez fermer cette fenêtre.";
-        setTimeout(() => window.close(), 2000);
+        statusTitle.textContent = "Succès !";
+        statusMessage.textContent = "Article ajouté à votre veille.";
+        setTimeout(() => window.close(), 2500);
 
     } catch (error) {
         console.error("Erreur lors de l'ajout de l'article partagé:", error);
-        statusMessage.textContent = `Erreur : ${error.message}`;
+        statusTitle.textContent = "Erreur";
+        statusMessage.textContent = error.message;
     }
 });
