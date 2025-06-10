@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const GITHUB_OWNER = "scalp66";
     const GITHUB_REPO = "cyjose";
-    const CUSTOM_ARTICLES_PATH = "custom-articles.json";
+    const CUSTOM_ARTICLES_PATH = "public/custom-articles.json"; // Le chemin correct
     const pat = localStorage.getItem('github_pat');
 
     if (!pat) {
