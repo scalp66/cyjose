@@ -4,15 +4,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     const sharedUrlElement = document.getElementById('shared-url');
 
     const params = new URLSearchParams(window.location.search);
-    // On cherche maintenant le nouveau nom de paramètre
     const sharedUrl = params.get('shared_url'); 
     const sharedTitle = params.get('shared_title') || 'Article partagé';
 
+    // --- MODIFICATION POUR LE DÉBOGAGE ---
     if (!sharedUrl) {
-        statusTitle.textContent = "Erreur";
-        statusMessage.textContent = "URL manquante. Vous pouvez fermer cette fenêtre.";
+        statusTitle.textContent = "Erreur de Partage";
+        statusMessage.textContent = "L'URL de l'article n'a pas été transmise. Veuillez réessayer.";
+        // On affiche l'URL complète reçue pour voir ce qui se passe
+        sharedUrlElement.textContent = `Info de débogage : l'application a reçu cette adresse : ${window.location.href}`;
         return;
     }
+    // --- FIN DE LA MODIFICATION ---
 
     sharedUrlElement.textContent = `URL : ${sharedUrl}`;
 
