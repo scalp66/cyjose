@@ -2,7 +2,7 @@ name: Lancer la veille d'informations
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/120 * * * *'
   workflow_dispatch:
 
 jobs:
