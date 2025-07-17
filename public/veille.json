@@ -3,16 +3,34 @@
     "title": "Katie Haun makes the case for tokenizing more of the world",
     "link": "https://techcrunch.com/video/katie-haun-makes-the-case-for-tokenizing-more-of-the-world/",
     "source": "TechCrunch (Test Final)",
-    "date": "2025-07-17T12:19:24.590Z"
+    "date": "2025-07-17T13:30:06.516Z"
   },
   {
-    "title": "Le gouvernement britannique veut abaisser l’âge du droit de vote de 18 à 16 ans, pour moderniser la démocratie",
+    "title": "A la maison d’arrêt de Strasbourg, mobilisation après la mort d’un détenu",
+    "link": "https://www.lemonde.fr/societe/article/2025/07/17/a-la-maison-d-arret-de-strasbourg-mobilisation-apres-la-mort-d-un-detenu_6621736_3224.html",
+    "source": "Le Monde (RSS)",
+    "date": "2025-07-17T13:00:03.000Z"
+  },
+  {
+    "title": "Au Festival « off » d’Avignon, la confession sensible d’Annette, 75 ans, héroïne populaire",
+    "link": "https://www.lemonde.fr/culture/article/2025/07/17/au-festival-off-d-avignon-la-confession-sensible-d-annette-75-ans-heroine-populaire_6621735_3246.html",
+    "source": "Le Monde (RSS)",
+    "date": "2025-07-17T13:00:02.000Z"
+  },
+  {
+    "title": "Le Burkina Faso va dissoudre sa Commission électorale nationale indépendante",
+    "link": "https://www.lemonde.fr/afrique/article/2025/07/17/le-burkina-faso-va-dissoudre-sa-commission-electorale-nationale-independante_6621733_3212.html",
+    "source": "Le Monde (RSS)",
+    "date": "2025-07-17T12:55:04.000Z"
+  },
+  {
+    "title": "Le gouvernement britannique veut abaisser l’âge du droit de vote de 18 à 16 ans, pour moderniser la démocratie",
     "link": "https://www.lemonde.fr/international/article/2025/07/17/le-gouvernement-britannique-veut-abaisser-l-age-du-droit-de-vote-de-18-a-16-ans-pour-moderniser-la-democratie_6621729_3210.html",
     "source": "Le Monde (RSS)",
-    "date": "2025-07-17T11:55:30.000Z"
+    "date": "2025-07-17T11:55:26.000Z"
   },
   {
-    "title": "EN DIRECT | Tour de France 2025 : suivez la douzième étape, entre Auch et Hautacam",
+    "title": "EN DIRECT | Tour de France 2025 : une échappée avec de nombreux Français, suivez la douzième étape, entre Auch et Hautacam",
     "link": "https://www.lemonde.fr/sport/live/2025/07/17/en-direct-tour-de-france-2025-suivez-la-douzieme-etape-entre-auch-et-hautacam_6621728_3242.html",
     "source": "Le Monde (RSS)",
     "date": "2025-07-17T11:20:06.000Z"
@@ -42,7 +60,7 @@
     "date": "2025-07-17T10:00:05.000Z"
   },
   {
-    "title": "Gaza : l’église catholique de la Sainte-Famille endommagée par un bombardement, deux morts et plusieurs blessés, dont le curé",
+    "title": "Gaza : l’église catholique de la Sainte-Famille endommagée par un bombardement, faisant deux morts et plusieurs blessés, dont le curé",
     "link": "https://www.lemonde.fr/guerre-au-proche-orient/article/2025/07/17/a-gaza-un-raid-sur-l-eglise-catholique-fait-plusieurs-blesses-selon-le-patriarcat-latin-de-jerusalem_6621717_6325529.html",
     "source": "Le Monde (RSS)",
     "date": "2025-07-17T09:52:23.000Z"
@@ -52,12 +70,6 @@
     "link": "https://www.lemonde.fr/planete/article/2025/07/17/en-savoie-l-euthanasie-de-bovins-atteints-d-une-maladie-contagieuse-suscite-l-angoisse-des-eleveurs-et-rencontre-des-resistances_6621716_3244.html",
     "source": "Le Monde (RSS)",
     "date": "2025-07-17T09:38:25.000Z"
-  },
-  {
-    "title": "Sur le Tour de France, la lutte contre le dopage se poursuit dans un contexte de suspicion structurelle",
-    "link": "https://www.lemonde.fr/sport/article/2025/07/17/sur-le-tour-de-france-la-lutte-contre-le-dopage-se-poursuit-dans-un-contexte-de-suspicion-structurelle_6621715_3242.html",
-    "source": "Le Monde (RSS)",
-    "date": "2025-07-17T09:30:05.000Z"
   },
   {
     "title": "Au Pakistan, l’un des pays les plus vulnérables aux effets du dérèglement climatique, la mousson estivale provoque des inondations meurtrières",
@@ -72,28 +84,22 @@
     "date": "2025-07-17T08:13:58.000Z"
   },
   {
+    "title": "A Marseille, un temple du prêt-à-porter fait son inventaire colonial",
+    "link": "https://www.lemonde.fr/m-le-mag/article/2025/07/17/a-marseille-un-temple-du-pret-a-porter-fait-son-inventaire-colonial_6621702_4500055.html",
+    "source": "Le Monde (RSS)",
+    "date": "2025-07-17T07:51:01.000Z"
+  },
+  {
     "title": "La France met fin à sa présence militaire permanente au Sénégal",
     "link": "https://www.lemonde.fr/afrique/article/2025/07/17/l-armee-francaise-met-fin-a-sa-presence-permanente-au-senegal_6621701_3212.html",
     "source": "Le Monde (RSS)",
     "date": "2025-07-17T07:41:31.000Z"
   },
   {
-    "title": "Georges Ibrahim Abdallah libéré, après quarante ans de détention",
-    "link": "https://www.lemonde.fr/societe/article/2025/07/17/georges-ibrahim-abdallah-libere-apres-quarante-ans-de-detention_6621698_3224.html",
+    "title": "L’Opus Dei mis en cause dans une affaire de traite d’êtres humains en Argentine",
+    "link": "https://www.lemonde.fr/international/article/2025/07/17/l-opus-dei-mis-en-cause-dans-une-affaire-de-traite-d-etres-humains-en-argentine_6621693_3210.html",
     "source": "Le Monde (RSS)",
-    "date": "2025-07-17T07:21:21.000Z"
-  },
-  {
-    "title": "Club Med : comment Giscard d’Estaing a perdu la bataille contre ses patrons chinois",
-    "link": "https://www.lemonde.fr/economie/article/2025/07/17/club-med-comment-giscard-d-estaing-a-perdu-son-bras-de-fer-contre-ses-patrons-chinois_6621694_3234.html",
-    "source": "Le Monde (RSS)",
-    "date": "2025-07-17T06:28:54.000Z"
-  },
-  {
-    "title": "Pour les villes d’escales des paquebots de croisière, les inconvénients du tourisme de masse, sans les avantages",
-    "link": "https://www.lemonde.fr/series-d-ete/article/2025/07/17/on-a-les-inconvenients-du-tourisme-de-masse-sans-les-avantages-l-accueil-mitige-des-navires-geants-dans-les-villes-d-escales_6621680_3451060.html",
-    "source": "Le Monde (RSS)",
-    "date": "2025-07-17T04:00:19.000Z"
+    "date": "2025-07-17T06:27:38.000Z"
   },
   {
     "title": "Notre sélection de livres cette semaine : « L’Iguane », le « Journal », de Lars Noren, « Dans une autre vie »…",
@@ -102,16 +108,10 @@
     "date": "2025-07-17T04:00:12.000Z"
   },
   {
-    "title": "A Monaco, le jardin créole du chef Marcel Ravin",
-    "link": "https://www.lemonde.fr/series-d-ete/article/2025/07/17/a-monaco-le-jardin-creole-de-marcel-ravin-a-la-tete-du-blue-bay_6621672_3451060.html",
+    "title": "Travaillés, chômés, obligatoires ou compensés : tout comprendre aux jours fériés",
+    "link": "https://www.lemonde.fr/les-decodeurs/article/2025/07/16/travailles-chomes-obligatoires-ou-compenses-tout-comprendre-aux-jours-feries_6621633_4355770.html",
     "source": "Le Monde (RSS)",
-    "date": "2025-07-17T03:15:01.000Z"
-  },
-  {
-    "title": "L’affaire Epstein continue d’empoisonner la coalition MAGA, Trump dénonce d’« anciens partisans qui ont tout gobé à ces conneries »",
-    "link": "https://www.lemonde.fr/international/article/2025/07/17/donald-trump-contre-attaque-apres-les-critiques-de-son-camp-sur-l-affaire-epstein_6621665_3210.html",
-    "source": "Le Monde (RSS)",
-    "date": "2025-07-17T02:53:03.000Z"
+    "date": "2025-07-16T15:44:39.000Z"
   },
   {
     "title": "Constellations familiales : Imposture à l’université ?",
