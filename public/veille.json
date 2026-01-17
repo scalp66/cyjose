@@ -3,7 +3,19 @@
     "title": "Go-to-market strategies for an AI era",
     "link": "https://techcrunch.com/video/go-to-market-strategies-for-an-ai-era/",
     "source": "TechCrunch (Test Final)",
-    "date": "2026-01-17T00:50:02.165Z"
+    "date": "2026-01-17T02:44:11.474Z"
+  },
+  {
+    "title": "Le PSG l’emporte largement contre Lille et reprend la tête de la Ligue 1",
+    "link": "https://www.lemonde.fr/sport/article/2026/01/17/le-psg-l-emporte-largement-contre-lille-et-reprend-la-tete-de-la-ligue-1_6662603_3242.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-01-17T01:16:30.000Z"
+  },
+  {
+    "title": "« Jeune Afrique » interdit au Mali pour « apologie du terrorisme » et « diffamation »",
+    "link": "https://www.lemonde.fr/afrique/article/2026/01/17/jeune-afrique-interdit-au-mali-pour-apologie-du-terrorisme-et-diffamation_6662602_3212.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-01-17T00:59:55.000Z"
   },
   {
     "title": "Gaza : Tony Blair, Marco Rubio, Jared Kushner et Steve Witkoff parmi les sept membres du conseil de la paix révélés par Donald Trump",
@@ -48,12 +60,6 @@
     "date": "2026-01-16T21:49:53.000Z"
   },
   {
-    "title": "« 20 Minutes » : la direction voit son référendum validé par une majorité de salariés",
-    "link": "https://www.lemonde.fr/economie/article/2026/01/16/20-minutes-la-direction-voit-son-referendum-valide-par-une-majorite-de-salaries_6662592_3234.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-01-16T21:12:03.000Z"
-  },
-  {
     "title": "Au Danemark, l’inquiétude de la communauté groenlandaise : « C’est notre existence même qui est en jeu »",
     "link": "https://www.lemonde.fr/international/article/2026/01/16/au-danemark-l-inquietude-de-la-communaute-groenlandaise-c-est-notre-existence-meme-qui-est-en-jeu_6662591_3210.html",
     "source": "Le Monde (RSS)",
@@ -70,12 +76,6 @@
     "link": "https://www.lemonde.fr/politique/article/2026/01/16/budget-2026-prime-d-activite-fiscalite-des-menages-soutien-aux-etudiants-ce-qu-il-faut-retenir-des-annonces-de-sebastien-lecornu_6662584_823448.html",
     "source": "Le Monde (RSS)",
     "date": "2026-01-16T19:15:15.000Z"
-  },
-  {
-    "title": "Oligarques russes : la justice française a saisi près d’un milliard d’euros depuis le début de la guerre en Ukraine",
-    "link": "https://www.lemonde.fr/les-decodeurs/article/2026/01/16/oligarques-russes-la-justice-francaise-a-saisi-pres-d-un-milliard-d-euros-depuis-le-debut-de-la-guerre-en-ukraine_6662583_4355770.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-01-16T19:12:18.000Z"
   },
   {
     "title": "EN DIRECT, guerre en Ukraine : les négociateurs ukrainiens et américains se rencontreront samedi à Miami",
@@ -108,16 +108,76 @@
     "date": "2026-01-16T16:49:09.000Z"
   },
   {
+    "title": "Les Coupeurs de Feu [PSNC]",
+    "link": "https://menace-theoriste.fr/les-coupeurs-de-feu-psnc/",
+    "source": "La Menace Théoriste – Le site de l'esprit critique",
+    "date": "2026-01-16T10:24:02.000Z"
+  },
+  {
     "title": "Les liaisons dangereuses du rappeur Koba LaD, de Black Manjak Family à Mohamed Amra",
     "link": "https://www.lemonde.fr/m-le-mag/article/2026/01/16/koba-lad-les-mauvaises-frequentations-d-un-rappeur_6662467_4500055.html",
     "source": "Le Monde (RSS)",
     "date": "2026-01-16T04:55:07.000Z"
   },
   {
+    "title": "Débat — « Dieu : Invention humaine ou réalité transcendante ? »",
+    "link": "https://menace-theoriste.fr/debat-dieu-invention-humaine-ou-realite-transcendante/",
+    "source": "La Menace Théoriste – Le site de l'esprit critique",
+    "date": "2026-01-15T00:06:14.000Z"
+  },
+  {
+    "title": "La Post-Vérité et le meurtre des citoyens",
+    "link": "https://menace-theoriste.fr/la-post-verite-et-le-meurtre-des-citoyens/",
+    "source": "La Menace Théoriste – Le site de l'esprit critique",
+    "date": "2026-01-12T10:57:29.000Z"
+  },
+  {
+    "title": "An -240 — Mesurer la Terre avec un bâton [Bureau du Bizarre]",
+    "link": "https://menace-theoriste.fr/an-240-mesurer-la-terre-avec-un-baton-bureau-du-bizarre/",
+    "source": "La Menace Théoriste – Le site de l'esprit critique",
+    "date": "2026-01-04T17:06:17.000Z"
+  },
+  {
+    "title": "Jean Messiha et le grand Méchant Loup [Erreur Manifeste]",
+    "link": "https://menace-theoriste.fr/jean-messiha-et-le-grand-mechant-loup-erreur-manifeste/",
+    "source": "La Menace Théoriste – Le site de l'esprit critique",
+    "date": "2025-12-30T11:32:39.000Z"
+  },
+  {
+    "title": "La secte tueuse des rationnalistes",
+    "link": "https://menace-theoriste.fr/la-secte-tueuse-des-rationnalistes/",
+    "source": "La Menace Théoriste – Le site de l'esprit critique",
+    "date": "2025-12-21T17:05:52.000Z"
+  },
+  {
+    "title": "Que savons-nous de l’après-vie ?",
+    "link": "https://menace-theoriste.fr/que-savons-nous-de-lapres-vie/",
+    "source": "La Menace Théoriste – Le site de l'esprit critique",
+    "date": "2025-12-18T11:14:44.000Z"
+  },
+  {
+    "title": "Congrès PRISME – Sur l’emprise mentale et les dérives sectaires",
+    "link": "https://menace-theoriste.fr/congres-prisme-sur-lemprise-mentale-et-les-derives-sectaires/",
+    "source": "La Menace Théoriste – Le site de l'esprit critique",
+    "date": "2025-12-14T11:41:31.000Z"
+  },
+  {
     "title": "Qu’est-ce qui se passe quoi donc au Cortecs ? Bilan 2025",
     "link": "https://cortecs.org/non-classe/quest-ce-qui-se-passe-quoi-donc-au-cortecs-bilan-2025/",
     "source": "CorteX - Le Cortecs",
     "date": "2025-12-12T17:10:59.000Z"
+  },
+  {
+    "title": "Dieu a-t-il sa place à l’école ? [TenL 154]",
+    "link": "https://menace-theoriste.fr/dieu-a-t-il-sa-place-a-lecole-tenl-154/",
+    "source": "La Menace Théoriste – Le site de l'esprit critique",
+    "date": "2025-12-11T08:45:23.000Z"
+  },
+  {
+    "title": "An 1704 — Psalmanazar, l’imposteur gascon made in Taiwan",
+    "link": "https://menace-theoriste.fr/an-1704-psalmanazar-limposteur-gascon-made-in-taiwan/",
+    "source": "La Menace Théoriste – Le site de l'esprit critique",
+    "date": "2025-12-07T17:12:59.000Z"
   },
   {
     "title": "Une preuve, c’est subjectif? Partie 6/6 : L’esprit critique, est-ce vraiment important?",
