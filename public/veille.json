@@ -3,13 +3,25 @@
     "title": "Go-to-market strategies for an AI era",
     "link": "https://techcrunch.com/video/go-to-market-strategies-for-an-ai-era/",
     "source": "TechCrunch (Test Final)",
-    "date": "2026-01-24T07:11:42.262Z"
+    "date": "2026-01-24T08:13:32.402Z"
   },
   {
-    "title": "Une enquête ouverte après le suicide d’une collégienne de 12 ans dans les Pyrénées-Orientales, qui pourrait être en lien avec du harcèlement",
+    "title": "Aux Etats-Unis, des bibliothécaires désemparés face aux demandes de livres inventés par l’IA",
+    "link": "https://www.lemonde.fr/culture/article/2026/01/24/aux-etats-unis-des-bibliothecaires-desempares-face-aux-demandes-de-livres-inventes-par-l-ia_6663922_3246.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-01-24T08:07:06.000Z"
+  },
+  {
+    "title": "Du Texas à New York, avis de tempête hivernale aux Etats-Unis, où « les dix prochains jours d’hiver seront les pires depuis quarante ans »",
+    "link": "https://www.lemonde.fr/climat/article/2026/01/24/du-texas-a-new-york-avis-de-tempete-hivernale-aux-etats-unis-ou-les-dix-prochains-jours-d-hiver-seront-les-pires-depuis-40-ans_6663918_1652612.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-01-24T07:24:26.000Z"
+  },
+  {
+    "title": "Une enquête ouverte après le suicide d’une collégienne de 12 ans dans les Pyrénées-Orientales, peut-être lié à du harcèlement",
     "link": "https://www.lemonde.fr/societe/article/2026/01/24/une-enquete-ouverte-apres-le-suicide-d-une-collegienne-de-12-ans-dans-les-pyrenees-orientales-qui-pourrait-etre-en-lien-avec-du-harcelement_6663913_3224.html",
     "source": "Le Monde (RSS)",
-    "date": "2026-01-24T06:53:21.000Z"
+    "date": "2026-01-24T06:53:20.000Z"
   },
   {
     "title": "Dépression Ingrid : Finistère, Morbihan et Ille-et-Vilaine maintenus samedi en vigilance orange pour les crues",
@@ -24,25 +36,13 @@
     "date": "2026-01-24T05:15:05.000Z"
   },
   {
-    "title": "ICE, la très contestée police de l’immigration, arrête et place en détention un enfant de 5 ans, à Minneapolis",
-    "link": "https://www.lemonde.fr/international/article/2026/01/24/a-minneapolis-des-manifestations-d-ampleur-apres-l-arrestation-et-la-detention-d-un-enfant-de-5-ans-par-l-ice_6663773_3211.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-01-24T05:05:03.000Z"
-  },
-  {
-    "title": "Andrea Bajani : « Le roman, une école d’“in-quiétude” »",
-    "link": "https://www.lemonde.fr/livres/article/2026/01/24/andrea-bajani-le-roman-une-ecole-d-in-quietude_6663894_3260.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-01-24T05:00:05.000Z"
-  },
-  {
     "title": "Que faire, que voir, où aller ? L’agenda culturel de la semaine",
     "link": "https://www.lemonde.fr/m-styles/article/2026/01/24/que-faire-que-voir-ou-aller-l-agenda-culturel-de-la-semaine_6663895_4497319.html",
     "source": "Le Monde (RSS)",
     "date": "2026-01-24T05:00:03.000Z"
   },
   {
-    "title": "EN DIRECT, guerre en Ukraine : les villes de Kiev et Kharkiv visées par des frappes russes nocturnes",
+    "title": "EN DIRECT, guerre en Ukraine : Kiev dénonce le « cynisme » des bombardements russes, alors que les deux parties négocient à Abou Dhabi",
     "link": "https://www.lemonde.fr/international/live/2026/01/24/en-direct-guerre-en-ukraine-frappes-russes-nocturnes-sur-les-villes-de-kharkiv-et-kiev_6663004_3210.html",
     "source": "Le Monde (RSS)",
     "date": "2026-01-24T04:41:09.000Z"
@@ -51,7 +51,7 @@
     "title": "Logement : le gouvernement change de doctrine et lance un plan pour sortir de la crise",
     "link": "https://www.lemonde.fr/societe/article/2026/01/24/logement-le-gouvernement-change-de-doctrine-et-lance-un-plan-pour-sortir-de-la-crise_6663892_3224.html",
     "source": "Le Monde (RSS)",
-    "date": "2026-01-24T04:30:04.000Z"
+    "date": "2026-01-24T04:30:00.000Z"
   },
   {
     "title": "Guerre en Ukraine : à Kiev, on comprend la critique de l’Europe et l’appel à l’action de Volodymyr Zelensky",
@@ -66,7 +66,7 @@
     "date": "2026-01-24T02:16:28.000Z"
   },
   {
-    "title": "Le PSG maintient Lens sous pression en Ligue 1 après sa victoire à Auxerre",
+    "title": "Le PSG maintient Lens sous pression en Ligue 1 grâce à sa victoire à Auxerre",
     "link": "https://www.lemonde.fr/sport/article/2026/01/24/le-psg-maintient-lens-sous-pression-en-ligue-1-apres-sa-victoire-a-auxerre_6663884_3242.html",
     "source": "Le Monde (RSS)",
     "date": "2026-01-24T00:48:24.000Z"
@@ -84,6 +84,12 @@
     "date": "2026-01-23T23:46:54.000Z"
   },
   {
+    "title": "L’appel des bâtonniers des barreaux de Paris et de New York : « Les attaques contre les avocats menacent la démocratie elle-même »",
+    "link": "https://www.lemonde.fr/idees/article/2026/01/23/l-appel-des-batonniers-des-barreaux-de-paris-et-de-new-york-les-attaques-contre-les-avocats-menacent-la-democratie-elle-meme_6663878_3232.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-01-23T20:00:06.000Z"
+  },
+  {
     "title": "Après Nestlé et Lactalis, Danone annonce à son tour rappeler deux lots de laits infantiles en France",
     "link": "https://www.lemonde.fr/societe/article/2026/01/23/danone-annonce-a-son-tour-des-rappels-de-laits-infantiles_6663867_3224.html",
     "source": "Le Monde (RSS)",
@@ -96,22 +102,16 @@
     "date": "2026-01-23T16:00:11.000Z"
   },
   {
-    "title": "Donald Trump provoque la colère du Royaume-Uni et de l’OTAN avec ses propos sur l’engagement en Afghanistan",
-    "link": "https://www.lemonde.fr/international/article/2026/01/23/donald-trump-provoque-la-colere-du-royaume-uni-et-de-l-otan-avec-ses-propos-sur-l-engagement-en-afghanistan_6663821_3210.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-01-23T14:15:37.000Z"
-  },
-  {
-    "title": "Vendre la dette des Américains : pour les Européens, une « arme nucléaire » financière très difficile à utiliser",
-    "link": "https://www.lemonde.fr/economie/article/2026/01/23/vendre-la-dette-des-americains-pour-les-europeens-une-arme-nucleaire-financiere-tres-difficile-a-utiliser_6663814_3234.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-01-23T13:30:13.000Z"
-  },
-  {
     "title": "Brave1, l’armurerie en ligne de l’Ukraine qui fournit ses troupes sur le terrain, une plateforme efficace mais qui montre ses limites",
     "link": "https://www.lemonde.fr/international/article/2026/01/22/brave1-l-armurerie-en-ligne-de-l-ukraine-qui-fournit-ses-troupes-sur-le-terrain-une-plateforme-efficace-mais-qui-montre-ses-limites_6663689_3210.html",
     "source": "Le Monde (RSS)",
     "date": "2026-01-22T16:00:07.000Z"
+  },
+  {
+    "title": "Parcoursup : les conseils du « Monde » pour faire le meilleur choix au moment de rentrer ses vœux",
+    "link": "https://www.lemonde.fr/campus/article/2026/01/21/parcoursup-les-reflexes-a-adopter-pour-faire-le-meilleur-choix_6663453_4401467.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-01-21T05:00:43.000Z"
   },
   {
     "title": "Trump & Groënland : Zététique de l’incompétence",
