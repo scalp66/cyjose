@@ -3,25 +3,91 @@
     "title": "Why Snowflake is no longer just a data warehouse",
     "link": "https://techcrunch.com/video/why-snowflake-is-no-longer-just-a-data-warehouse/",
     "source": "TechCrunch (Test Final)",
-    "date": "2026-04-14T17:04:35.086Z"
+    "date": "2026-04-14T18:55:23.709Z"
   },
   {
-    "title": "Cécile Kohler et Jacques Paris, anciens otages en Iran, décrochent leurs deux portraits de l’Assemblée nationale",
-    "link": "https://www.lemonde.fr/international/article/2026/04/14/cecile-kohler-et-jacques-paris-anciens-otages-en-iran-decrochent-leurs-deux-portraits-de-l-assemblee-nationale_6679968_3210.html",
+    "title": "Elections en Hongrie : « Une fois le champagne sabré, les dirigeants européens devront réévaluer leurs attentes vis-à-vis du nouveau gouvernement »",
+    "link": "https://www.lemonde.fr/idees/article/2026/04/14/elections-en-hongrie-une-fois-le-champagne-sabre-les-dirigeants-europeens-devront-reevaluer-leurs-attentes-vis-a-vis-du-nouveau-gouvernement_6679986_3232.html",
     "source": "Le Monde (RSS)",
-    "date": "2026-04-14T16:47:58.000Z"
+    "date": "2026-04-14T18:30:05.000Z"
   },
   {
-    "title": "Justice criminelle : le Sénat approuve le dispositif contesté de « plaider-coupable » porté par Gérald Darmanin",
+    "title": "DZ Mafia : au procès de ses chefs présumés, 25 ans de prison pour Gabriel Ory, Amine Oualane acquitté",
+    "link": "https://www.lemonde.fr/societe/article/2026/04/14/dz-mafia-au-proces-de-ses-chefs-presumes-25-ans-de-prison-pour-gabriel-ory-amine-oualane-acquitte_6679985_3224.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T18:27:45.000Z"
+  },
+  {
+    "title": "Carburants : le gouvernement prêt à encadrer les marges des stations-service, mais pas à geler les prix à la pompe",
+    "link": "https://www.lemonde.fr/economie/article/2026/04/14/carburants-le-gouvernement-pret-a-encadrer-les-marges-des-stations-service-mais-pas-a-geler-les-prix-a-la-pompe_6679983_3234.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T18:13:04.000Z"
+  },
+  {
+    "title": "Le chanteur Patrick Bruel visé par une enquête à Paris après une plainte pour tentative de viol",
+    "link": "https://www.lemonde.fr/societe/article/2026/04/14/le-chanteur-patrick-bruel-vise-par-une-enquete-a-paris-apres-une-plainte-pour-tentative-de-viol_6679982_3224.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T18:10:29.000Z"
+  },
+  {
+    "title": "Moyen-Orient : en marge des conflits, l’alliance entre la Grèce et Israël ravive les tensions entre Athènes et Ankara",
+    "link": "https://www.lemonde.fr/international/article/2026/04/14/moyen-orient-en-marge-des-conflits-l-alliance-entre-la-grece-et-israel-ravive-les-tensions-entre-athenes-et-ankara_6679981_3210.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T18:00:13.000Z"
+  },
+  {
+    "title": "Renault va réduire jusqu’à 20 % de ses postes d’ingénierie dans le monde d’ici à 2028",
+    "link": "https://www.lemonde.fr/economie/article/2026/04/14/renault-va-reduire-jusqu-a-20-de-ses-postes-d-ingenierie-dans-le-monde-d-ici-a-2028_6679979_3234.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T17:58:00.000Z"
+  },
+  {
+    "title": "Pedro Sanchez, de nouveau en visite à Pékin, assume son rapprochement avec la Chine",
+    "link": "https://www.lemonde.fr/international/article/2026/04/14/pedro-sanchez-de-nouveau-en-visite-a-pekin-assume-son-rapprochement-avec-la-chine_6679978_3210.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T17:48:55.000Z"
+  },
+  {
+    "title": "L’Assemblée nationale adopte le projet de loi de « simplification » et la suppression des ZFE, dernier vote mercredi au Sénat",
+    "link": "https://www.lemonde.fr/politique/article/2026/04/14/l-assemblee-nationale-adopte-le-projet-de-loi-de-simplification-et-la-suppression-des-zfe-dernier-vote-mercredi-au-senat_6679977_823448.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T17:35:35.000Z"
+  },
+  {
+    "title": "Outre-mer : la timide reprise économique de 2025 n’a produit ni emploi, ni consommation",
+    "link": "https://www.lemonde.fr/outre-mer/article/2026/04/14/outre-mer-une-reprise-economique-timide-en-2025-dans-un-contexte-de-vie-chere-qui-fragilise-les-populations_6679976_1840826.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T17:30:05.000Z"
+  },
+  {
+    "title": "IFI : des montants en hausse mais des recettes marginales pour l’Etat",
+    "link": "https://www.lemonde.fr/politique/article/2026/04/14/ifi-des-montants-en-hausse-mais-des-recettes-marginales-pour-l-etat_6679975_823448.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T17:25:43.000Z"
+  },
+  {
+    "title": "EN DIRECT, guerre en Ukraine : des centaines de missiles pour le Patriot, des lanceurs IRIS-T, des drones d’attaque longue portée : ce que contient l’accord de 4 milliards d’euros entre l’Ukraine et l’Allemagne",
+    "link": "https://www.lemonde.fr/international/live/2026/04/14/en-direct-guerre-en-ukraine-des-centaines-de-missiles-pour-le-patriot-des-lanceurs-iris-t-des-drones-d-attaque-longue-portee-ce-que-contient-l-accord-de-4-milliards-d-euros-entre-l-ukraine-et-l-allemagne_6679492_3210.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T17:22:52.000Z"
+  },
+  {
+    "title": "Harcèlement scolaire : pourquoi l’ex-professeure d’Evaëlle a été condamnée à un an de prison avec sursis",
+    "link": "https://www.lemonde.fr/education/article/2026/04/14/harcelement-scolaire-pourquoi-l-ex-professeure-d-evaelle-a-ete-condamnee-a-un-an-de-prison-avec-sursis_6679970_1473685.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T17:00:06.000Z"
+  },
+  {
+    "title": "EN DIRECT, Liverpool-PSG : Ousmane Dembélé et Désiré Doué titulaires pour le quart de finale retour de la Ligue des champions",
+    "link": "https://www.lemonde.fr/sport/live/2026/04/14/en-direct-liverpool-psg-suivez-le-quart-de-finale-retour-de-la-ligue-des-champions_6679971_3242.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-04-14T17:00:06.000Z"
+  },
+  {
+    "title": "Le Sénat adopte le projet de réforme de la justice criminelle porté par Gérald Darmanin",
     "link": "https://www.lemonde.fr/societe/article/2026/04/14/justice-criminelle-le-senat-approuve-le-dispositif-conteste-de-plaider-coupable-porte-par-gerald-darmanin_6679967_3224.html",
     "source": "Le Monde (RSS)",
-    "date": "2026-04-14T16:37:30.000Z"
-  },
-  {
-    "title": "Jean-Pierre Escalettes, ancien président de la Fédération française de football, est mort",
-    "link": "https://www.lemonde.fr/disparitions/article/2026/04/14/jean-pierre-escalettes-ancien-president-de-la-federation-francaise-de-football-est-mort_6679964_3382.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T16:08:30.000Z"
+    "date": "2026-04-14T16:37:26.000Z"
   },
   {
     "title": "Rémunérations dans la fonction publique : un chantier déjà mal engagé",
@@ -30,40 +96,10 @@
     "date": "2026-04-14T16:00:17.000Z"
   },
   {
-    "title": "« RN 72, à la conquête de l’Ouest », sur France 5 : les leçons des victoires du parti dans la Sarthe, à un an de la présidentielle",
-    "link": "https://www.lemonde.fr/culture/article/2026/04/14/rn-72-a-la-conquete-de-l-ouest-sur-france-5-les-lecons-des-victoires-du-parti-dans-la-sarthe-a-un-an-de-la-presidentielle_6679961_3246.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T16:00:15.000Z"
-  },
-  {
-    "title": "Les Charlotte Hornets aux portes des playoffs NBA, après dix ans d’absence : « On n’est pas habitués à vivre ce genre d’émotions »",
-    "link": "https://www.lemonde.fr/sport/article/2026/04/14/les-charlotte-hornets-aux-portes-des-playoffs-nba-apres-dix-ans-d-absence-on-n-est-pas-habitues-a-vivre-ce-genre-d-emotions_6679960_3242.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T16:00:10.000Z"
-  },
-  {
-    "title": "EN DIRECT, guerre au Moyen-Orient : Israël et le Liban débutent des pourparlers de paix, sous médiation américaine",
+    "title": "EN DIRECT, guerre au Moyen-Orient : plus de 10 000 soldats et une douzaine de navires américains engagés dans le blocus du détroit d’Ormuz ; fin des pourparlers de paix entre Israéliens et Libanais, à Washington",
     "link": "https://www.lemonde.fr/international/live/2026/04/14/en-direct-guerre-au-moyen-orient-israel-et-le-liban-debutent-des-pourparlers-de-paix-sous-mediation-americaine_6679867_3210.html",
     "source": "Le Monde (RSS)",
-    "date": "2026-04-14T15:57:57.000Z"
-  },
-  {
-    "title": "Travail le 1er-Mai : Jean-Pierre Farandou, le ministre du travail, assure qu’une loi sera adoptée courant 2026",
-    "link": "https://www.lemonde.fr/emploi/article/2026/04/14/travail-le-1er-mai-jean-pierre-farandou-le-ministre-du-travail-assure-qu-une-loi-sera-adoptee-courant-2026_6679958_1698637.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T15:51:37.000Z"
-  },
-  {
-    "title": "Le rachat du « Telegraph » par le groupe Axel Springer approuvé par le gouvernement britannique",
-    "link": "https://www.lemonde.fr/economie/article/2026/04/14/le-rachat-du-telegraph-par-le-groupe-axel-springer-approuve-par-le-gouvernement-britannique_6679955_3234.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T15:41:12.000Z"
-  },
-  {
-    "title": "Procès des chefs présumés de la DZ Mafia : vingt-cinq ans de réclusion et un acquittement prononcés pour un double meurtre en 2019",
-    "link": "https://www.lemonde.fr/societe/article/2026/04/14/proces-des-chefs-presumes-de-la-dz-mafia-vingt-cinq-ans-de-reclusion-et-un-acquittement-prononces-pour-un-double-meurtre-en-2019_6679953_3224.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T15:38:28.000Z"
+    "date": "2026-04-14T15:57:56.000Z"
   },
   {
     "title": "Angelin Preljocaj et le Ballet de l’Opéra de Paris font danser les tableaux du musée d’Orsay et du Louvre",
@@ -72,52 +108,16 @@
     "date": "2026-04-14T15:30:04.000Z"
   },
   {
-    "title": "Restitution des biens culturels pillés en Afrique : que font les autres pays européens ?",
-    "link": "https://www.lemonde.fr/afrique/article/2026/04/14/restitution-des-biens-culturels-pilles-en-afrique-que-font-les-autres-pays-europeens_6679951_3212.html",
+    "title": "Dans une « Souris City », le rôle social des « profiteurs » et « des travailleurs » n’est pas figé",
+    "link": "https://www.lemonde.fr/sciences/article/2026/04/14/dans-une-souris-city-le-role-social-des-profiteurs-et-des-travailleurs-n-est-pas-fige_6679946_1650684.html",
     "source": "Le Monde (RSS)",
-    "date": "2026-04-14T15:00:45.000Z"
+    "date": "2026-04-14T15:00:03.000Z"
   },
   {
-    "title": "Assurance-chômage : une étude appelle à repenser la façon d’envisager les réformes",
-    "link": "https://www.lemonde.fr/politique/article/2026/04/14/assurance-chomage-une-etude-appelle-a-repenser-la-facon-d-envisager-les-reformes_6679949_823448.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T15:00:13.000Z"
-  },
-  {
-    "title": "Loi Yadan : « Ni la lutte nécessaire contre l’antisémitisme, ni la juste condamnation du terrorisme ne doivent servir de prétexte à bâillonner toute réflexion critique »",
-    "link": "https://www.lemonde.fr/idees/article/2026/04/14/loi-yadan-ni-la-lutte-necessaire-contre-l-antisemitisme-ni-la-juste-condamnation-du-terrorisme-ne-doivent-servir-de-pretexte-a-baillonner-toute-reflexion-critique_6679947_3232.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T15:00:04.000Z"
-  },
-  {
-    "title": "En Ukraine, la minorité roumaine cherche à préserver son identité",
-    "link": "https://www.lemonde.fr/international/article/2026/04/14/en-ukraine-la-minorite-roumaine-cherche-a-preserver-son-identite_6679948_3210.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T15:00:01.000Z"
-  },
-  {
-    "title": "Face aux Pays-Bas, les Bleues veulent se rapprocher du Mondial 2027 et s’affirmer parmi les meilleures nations",
-    "link": "https://www.lemonde.fr/sport/article/2026/04/14/face-aux-pays-bas-les-bleues-veulent-se-rapprocher-du-mondial-2027-et-s-affirmer-parmi-les-meilleures-nations_6679944_3242.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T14:45:09.000Z"
-  },
-  {
-    "title": "L’Elysée refuse une perquisition dans le cadre d’une enquête sur l’organisation des cérémonies d’hommage au Panthéon",
-    "link": "https://www.lemonde.fr/les-decodeurs/article/2026/04/14/l-elysee-refuse-une-perquisition-dans-le-cadre-d-une-enquete-sur-l-organisation-des-ceremonies-d-hommage-au-pantheon_6679942_4355770.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T14:29:20.000Z"
-  },
-  {
-    "title": "Olivier Nora quitte la présidence des éditions Grasset",
+    "title": "Olivier Nora débarqué de la présidence des éditions Grasset",
     "link": "https://www.lemonde.fr/livres/article/2026/04/14/olivier-nora-quitte-la-presidence-des-editions-grasset_6679936_3260.html",
     "source": "Le Monde (RSS)",
     "date": "2026-04-14T13:33:20.000Z"
-  },
-  {
-    "title": "EN DIRECT, guerre en Ukraine : Volodymyr Zelensky promet une réparation d’ici à la fin d’avril de l’oléoduc Droujba, qui fournit en pétrole russe la Hongrie",
-    "link": "https://www.lemonde.fr/international/live/2026/04/14/en-direct-guerre-en-ukraine-volodymyr-zelensky-promet-une-reparation-d-ici-a-la-fin-d-avril-de-l-oleoduc-droujba-qui-fournit-en-petrole-russe-la-hongrie_6679492_3210.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-04-14T13:06:58.000Z"
   },
   {
     "title": "An 1835 – Double aveugle à Nuremberg",
