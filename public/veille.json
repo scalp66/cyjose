@@ -3,10 +3,34 @@
     "title": "Sam Altman isn’t the only one who wants to pump the brakes on AI",
     "link": "https://techcrunch.com/video/sam-altman-isnt-the-only-one-who-wants-to-pump-the-brakes-on-ai/",
     "source": "TechCrunch (Test Final)",
-    "date": "2026-08-02T12:52:16.171Z"
+    "date": "2026-08-02T14:21:03.785Z"
   },
   {
-    "title": "EN DIRECT, Tour de France Femmes 2026 : les coureuses s’élancent depuis Aigle",
+    "title": "Monaco, champion de France de basket en titre, recalé des championnats professionnels",
+    "link": "https://www.lemonde.fr/sport/article/2026/08/02/monaco-champion-de-france-de-basket-en-titre-recale-des-championnats-professionnels_6737296_3242.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-08-02T13:45:10.000Z"
+  },
+  {
+    "title": "EN DIRECT, guerre en Ukraine : la Russie fait état de morts dans plusieurs régions après des bombardements ukrainiens",
+    "link": "https://www.lemonde.fr/international/live/2026/08/02/en-direct-guerre-en-ukraine-la-russie-fait-etat-de-morts-dans-plusieurs-regions-apres-des-bombardements-ukrainiens_6737250_3210.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-08-02T13:21:23.000Z"
+  },
+  {
+    "title": "Incendies | Retrouvez toutes nos informations : le feu de Gironde fixé mais toujours sous surveillance ; « pas d’évolution du périmètre du feu » dans le Var",
+    "link": "https://www.lemonde.fr/planete/live/2026/08/02/en-direct-incendies-pas-d-evolution-du-perimetre-du-feu-dans-le-var-en-gironde-le-feu-toujours-fixe-mais-sous-surveillance_6737097_3244.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-08-02T13:10:24.000Z"
+  },
+  {
+    "title": "EN DIRECT, guerre au Moyen-Orient : les membres de l’OPEP+ augmentent les quotas de production de pétrole pour septembre",
+    "link": "https://www.lemonde.fr/international/live/2026/08/02/en-direct-guerre-au-moyen-orient-les-membres-de-l-opep-augmente-les-quotas-de-production-de-petrole-pour-septembre_6737099_3210.html",
+    "source": "Le Monde (RSS)",
+    "date": "2026-08-02T13:05:28.000Z"
+  },
+  {
+    "title": "EN DIRECT, Tour de France Femmes 2026 : cinq coureuses passent à l’attaque après cinquante kilomètres de course",
     "link": "https://www.lemonde.fr/sport/live/2026/08/02/en-direct-tour-de-france-femmes-2026-suivez-la-deuxieme-etape-entre-aigle-et-geneve_6737294_3242.html",
     "source": "Le Monde (RSS)",
     "date": "2026-08-02T12:15:02.000Z"
@@ -48,30 +72,6 @@
     "date": "2026-08-02T10:00:13.000Z"
   },
   {
-    "title": "EN DIRECT, guerre en Ukraine : Kiev affirme avoir visé une raffinerie et un aérodrome russes ; la Russie revendique des bombardements contre deux ports",
-    "link": "https://www.lemonde.fr/international/live/2026/08/02/en-direct-guerre-en-ukraine-kiev-affirme-avoir-vise-une-raffinerie-et-un-aerodrome-russes-la-russie-revendique-des-bombardements-contre-deux-ports_6737250_3210.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-08-02T09:30:12.000Z"
-  },
-  {
-    "title": "EN DIRECT, incendies : le feu en Gironde toujours fixé mais sous surveillance au moins « jusqu’aux pluies de l’hiver » ; « pas d’évolution du périmètre du feu » dans le Var",
-    "link": "https://www.lemonde.fr/planete/live/2026/08/02/en-direct-incendies-le-feu-en-gironde-toujours-fixe-mais-sous-surveillance-au-moins-jusqu-aux-pluies-de-l-hiver-pas-d-evolution-du-perimetre-du-feu-dans-le-var_6737097_3244.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-08-02T09:23:19.000Z"
-  },
-  {
-    "title": "EN DIRECT, guerre au Moyen-Orient : Donald Trump dit suspendre les frappes contre l’Iran, dans l’attente d’un accord rapide ; Téhéran contraint face à des capacités militaires amoindries, selon Marco Rubio",
-    "link": "https://www.lemonde.fr/international/live/2026/08/02/en-direct-guerre-au-moyen-orient-donald-trump-dit-suspendre-les-frappes-contre-l-iran-dans-l-attente-d-un-accord-rapide-teheran-contraint-face-a-des-capacites-militaires-amoindries-selon-marco-rubio_6737099_3210.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-08-02T09:14:20.000Z"
-  },
-  {
-    "title": "Sri Lanka : l’armée déployée pour une nouvelle émeute en prison",
-    "link": "https://www.lemonde.fr/international/article/2026/08/02/sri-lanka-l-armee-deployee-pour-une-nouvelle-emeute-en-prison_6737276_3210.html",
-    "source": "Le Monde (RSS)",
-    "date": "2026-08-02T07:35:13.000Z"
-  },
-  {
     "title": "A Fnideq, près de Ceuta, la désillusion des jeunes Marocains après une traversée éclair en Europe",
     "link": "https://www.lemonde.fr/afrique/article/2026/08/02/a-fnideq-pres-de-ceuta-la-desillusion-des-jeunes-marocains-apres-une-traversee-eclair-en-europe_6737266_3212.html",
     "source": "Le Monde (RSS)",
@@ -96,10 +96,10 @@
     "date": "2026-08-02T04:00:30.000Z"
   },
   {
-    "title": "« Les jeunes sont presque tous partis ailleurs » : à Bourganeuf, dans la Creuse, la communauté turque se dépeuple aussi",
+    "title": "« Les jeunes sont presque tous partis » : à Bourganeuf, dans la Creuse, la communauté turque se dépeuple aussi",
     "link": "https://www.lemonde.fr/series-d-ete/article/2026/08/02/les-jeunes-sont-presque-tous-partis-ailleurs-a-bourganeuf-dans-la-creuse-la-communaute-turque-se-depeuple-aussi_6737254_3451060.html",
     "source": "Le Monde (RSS)",
-    "date": "2026-08-02T03:30:22.000Z"
+    "date": "2026-08-02T03:30:14.000Z"
   },
   {
     "title": "Décodage biologique (& Biologie Totale) [PSNC]",
